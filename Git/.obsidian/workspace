@@ -1,0 +1,100 @@
+{
+  "main": {
+    "id": "393ccd44d6bfc7c2",
+    "type": "split",
+    "children": [
+      {
+        "id": "fa53ad4708bcfb71",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Useful Commands.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fd07bffe90ab3743",
+    "type": "split",
+    "children": [
+      {
+        "id": "537d45de3044772d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "16d0f22516ace5e9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "46eca3183e5d36c1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f07b927776476167",
+    "type": "split",
+    "children": [
+      {
+        "id": "e23e7ec691b7617e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f00520827ff189b5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Useful Commands.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "Useful Commands.md",
+    "WorkFlows.md",
+    "Advance stuff.md",
+    "Advance Logs.md",
+    "Notes From Atlasian.md",
+    "Undoing Strategies.md",
+    "Untitled.md",
+    "Pics/merge mvr.png",
+    "rebase mvr.png",
+    "merge mvr.png"
+  ]
+}

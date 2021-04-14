@@ -1,0 +1,100 @@
+{
+  "main": {
+    "id": "875506ad6f313a87",
+    "type": "split",
+    "children": [
+      {
+        "id": "7256ef545fbf8cf5",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "RW Design Architectures/Ray Winderlich Design Architectures.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fd790533b4c307ca",
+    "type": "split",
+    "children": [
+      {
+        "id": "711997fcf054481a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a9f819cfe7cf9233",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "19b4137357c0da15",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d28e864ca0a9f5a3",
+    "type": "split",
+    "children": [
+      {
+        "id": "af16effde1643c6d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dee4d56c3ae266af",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "RW Design Architectures/Ray Winderlich Design Architectures.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "RW Design Architectures/Ray Winderlich Design Architectures.md",
+    "CryptoKit/CryptoKit.md",
+    "CryptoKit/Seal box.png",
+    "CryptoKit/Screen Shot 2021-03-28 at 10.39.12 AM.png",
+    "Seal box.png",
+    "Screen Shot 2021-03-29 at 5.31.16 PM.png",
+    "Screen Shot 2021-03-28 at 10.39.12 AM.png",
+    "CryptoKit.md",
+    "Untitled.md",
+    "Dispatch Queues.md"
+  ]
+}
