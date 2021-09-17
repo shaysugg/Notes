@@ -5,7 +5,10 @@
 Apple frameworks use it a lot. *Ex: UICollectionView delegates - UICollectionView datasource.*
 
 ### - Strategy Pattern
- ![[Screen Shot 2021-02-19 at 9.27.40 PM.png]]
+ ![q](Screen Shot 2021-02-19 at 9.27.40 PM.png)
+
+
+
 * instead of defining **objects** directly define their **purposes** and **strategies**.
 * then each object that impeliments the same strategy in itself can be use.
 * objects with the same strategy are interchangeable.
@@ -80,7 +83,7 @@ let c2 = c1
 c2.int = 10
 
 print(c1.int) //prints 10 (but we don't want it)
-``` 
+```
 if we want to not change the c1 values by changing c2 we need a **copy** of it. we can impeliment it like this:
 ```swift
       

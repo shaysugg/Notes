@@ -70,5 +70,28 @@ scan emits **each** value with the transformation that did provided for it
 
 ### Share
 
-if you want to **subscribe multiple** to **one publisher** you should use `share` on that publisher then subscribe to it. *May have some side affects if you dont to it.*
+if you want to **subscribe multiple** to **one publisher** you should use `share` on that publisher then subscribe to it. **otherwise each subscribe runs the publisher again and different values for each subscriber can get generetated.** [more](https://developer.apple.com/documentation/combine/publishers/merge/share())
+
+```swift
+let pub = (1...3).publisher
+    .delay(for: 1, scheduler: DispatchQueue.main)
+    .map( { _ in return Int.random(in: 0...100) } )
+    .print("Random")
+    .share()
+
+
+cancellable1 = pub
+    .sink { print ("Stream 1 received: \($0)")}
+cancellable2 = pub
+    .sink { print ("Stream 2 received: \($0)")}
+
+//whithout share the two subscribers will recive different values.
+```
+
+## Debging Tools
+
+* print()
+* handleEvents(receiveSubscription:receiveOutput:receiveCompletion:rece iveCancel:receiveRequest:)
+* breakpointOnError()
+* breakpoint(receiveSubscription:receiveOutput:receiveCompletion:)
 
