@@ -160,5 +160,196 @@
 </table>
 
 ### Notes
-* executing `man heir` in one of system file hierarchy would give you an explanation of all sub directories it has.
+* 🔥 executing `man heir` in one of the **system** file would give you an explanation of all sub directories it has.
+* `tree .` gives you a graphical tree hierarchy of files you have in the directory.
 * https://www.youtube.com/watch?v=TG5YJe9camA&list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK&index=21
+
+### File types and permissions
+
+ in the long listing aka `ls -alh` you always have a format like this beside every file:
+	 `drwxr-xr-x`
+ it means **FileType** *1* | **User Permission** *2 - 4* | **User Group Permission** *5-7* | **Everyone permission** *8-10*
+
+ #### File Types
+ * d -> directory
+ * l -> link to a file
+ * b -> block device file
+ * c -> character device file
+ * s -> socket file
+ 
+ ### Permissions
+* r-> read
+* w -> write
+* x -> execute
+
+## Scheduling tasks with cron
+* `crontab -l` list of crons you have on your system
+* `crontab -e` edit list of crones
+
+a scheduled task in crone should has this format : 
+**(min)  (hour) (which days) (which months) (which weekday) (command)
+
+*example:*
+`* * * * * echo "date now is $(date) >> /Users/me/Desktop/dates.txt"`
+ *would write every minute the current date in the dates.txt file*
+
+ * at /etc/crontab you find system wide crotabs. if you becoming the root you can definbe different crontabs for different users. you have one extra field to crontab formula before command and it is the user name that you want to define the crontab for
+ * etc/cron.d for software cons
+
+ **Further read**
+ * etc/cron.allow ??
+ * etc/cron.dany ??
+
+
+## TMUX
+TODO
+*required a server machine*
+
+## TAR
+tar has a lots of arguments and options but two useful options are:
+
+1) Archiving: `tar -zcvf [sometar.tar.gz] [directory that you want to archive]`
+2) De-Archiving: `tar -zxvf [sometar.tar.gz]`
+	* z -> using gzip *compress the archive too*
+	* c -> create a new archive
+	* v -> verbose *log the process*
+	* f -> read the archive from the file
+
+	
+## Some notes about BASH Scripting
+* putting a <b>``</b> in the echo string execute the command inside it:
+	ex: `echo "there is  ['] wc -l < /etc/group ['] lines in the group file!" `*
+
+* TODO: checkout **Source** command, (integrate the script to your current shell)
+
+* ### Argument References
+<table>
+<tr>
+<th style = "width: 30%">Argument</th>
+<th>Explanation</th>
+</tr>
+
+<tr>
+<td>$0</td>
+<td>the file name of bash script</td>
+</tr>
+
+<tr>
+<td>$#</td>
+<td>number of argument that have been given to the script
+</td>
+</tr>
+
+
+<tr>
+<td>$@</td>
+<td>all of the arguments (can be used like: for arg in $@) 
+</td>
+</tr>
+
+<tr>
+<td>$1 , $2 ... $n</td>
+<td>the nth argument that have been given to the script
+</td>
+</tr>
+
+</table>
+
+* If statement
+```bash
+if [[condition]]; then
+# do somthing
+elif [[another condition]]; then
+#do somthing
+else 
+#do something
+fi
+```
+
+* for loop statement
+```bash
+for arg in "$@"; do 
+echo "$arg"
+done
+```
+
+* function 
+```bash
+#could be define without func keyword
+function myfunc() {
+# $1 is a first parameter that this function gets
+echo "first param is $1"
+echo "second param is $2"
+}
+
+myfunc "yo" "bye"
+
+```
+
+## What is $PATH ?
+* if you `echo $path` it's gonna return list of path directories. these directories getting iterate through when you run a command and first command that have found in these directories gonna get executed.
+	*example:*
+```bash
+echo $PATH
+/Users/gig/myscripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/gig/.fig/bin:/Users/gig/desktop/flutter/flutter2.0.4/bin
+```
+
+* ### Changing Path
+	* appending to path: `PATH=$PATH:/some/dir/path` *(usual safe way, because it would not override the default directories order)*
+	* prepending to path: `PATH=$PATH:/some/dir/path` *(not a safe way because it would override the order of paths that are in $PATH, the dir that you prepend gonna get search before each one of these.)*
+	* usually you put all your path in a bash profile like: `~/.bash_profile` *or if somebody like me using zshel you put the in '~/.zshrc' *
+
+## Aliases
+Can be use to be for:
+* Short version of a command that is very long and you use it very repeatedly
+	example:  `alias gcmsg="git commit -m"`
+* Shadowing a command: changing a default behavior of a command to another.
+	example `alias ls ="ls -a --color"`
+* not that if you want to have this alias to be valid when you open another shell you should put aliases in a configuration file like `~/.bashrc`, `~/.zshrc`.
+	
+
+* if you type `alias` it would show a list of all the aliases.
+
+## Vim Basics
+* dd -> delete a line
+* u -> undo
+* ctrl+r -> redo
+* / + your_text -> search your_text in the file (go to next result with n go to previous result with N)
+* %s/text_you_looking_for/text_you_want_to_replace/g
+
+
+<table>
+<tr>
+<th style = "width: 40%">Command</th>
+<th>Explanation</th>
+</tr>
+
+<tr>
+<td>dd</td>
+<td>delete a line</td>
+</tr>
+
+<tr>
+<td>u</td>
+<td>undo changes</td>
+</tr>
+
+<tr>
+<td>ctrl+r</td>
+<td>redo changes</td>
+</tr>
+
+
+<tr>
+<td>/ + [[your_text]] </td>
+<td>search your_text in the file (go to next result with n go to previous result with N)</td>
+</tr>
+
+<tr>
+<td>%s/[[search_text]]/[[replace_text]] </td>
+<td>search and replace (g stands for greedy)</td>
+</tr>
+
+
+
+</table>
