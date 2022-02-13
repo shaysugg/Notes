@@ -144,3 +144,6 @@ let (fooResult, barresult) = try await (foo, bar)
 ```
 
 **✅  Important note:** The async code in the two calls starts executing **right away,** before you call await. 
+
+## Task
+Any time we want to run asynchronous code from a synchronous context, we need a new Task.
