@@ -1,6 +1,7 @@
 # Static Protocols Instance
+[Article](https://www.swiftbysundell.com/articles/using-static-protocol-apis-to-create-conforming-instances/)
 
-Assume In a <mark>protocol</mark> we want to have some predefiened objects that already conforms to that protocol and instead of creating an istance each time like `Example()` we want to refer them like `.example`
+Assume In a <mark>protocol</mark> we want to have some predefined objects that already conforms to that protocol and instead of creating an instance each time like `Example()` we want to refer them like `.example`
 
 ```swift
 protcol Chef {
@@ -31,7 +32,7 @@ For having `PizzaChef` and `KebabChef` as an instance of `Chef` we need to:
 
 ```swift
 extension Chef where Self == PizzaChef {
-  static var pizzaCheff = PizzaChef()
+  static var pizzaCheff: Self { Self() }
 }
 
 extension Chef where Self == KebabChef {
