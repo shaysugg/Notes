@@ -15,3 +15,17 @@ example(of: "Usage of Stack") {
 
     print(cdStack)
 }
+
+example(of: "Usage of linked list") {
+    let list = LinkedList<Int>()
+    list.push(1)
+    list.push(2)
+    list.push(3)
+    list.append(1)
+    
+    let node = list.node(at: 2)!
+    list.insert(10, after: node)
+    
+    print(list)
+    
+}

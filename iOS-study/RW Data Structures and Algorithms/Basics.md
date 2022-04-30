@@ -46,7 +46,7 @@ func naiveContains(_ value: Int, in array: [Int]) -> Bool {
 ### Array
 * Order
 * Random Access:
-	Random-access is a trait that data structures can claim if they can handle element retrieval in a constant amount of time.
+	Random-access is a trait that data structures can claim if they can handle **element retrieval** in a **constant amount of time.**
 * Insertion:
 	**appending** is a **random-access** operation. It means It takes a constant time to add something at the end of the array no matter how long the array is, how ever **Insertion** performance can be **different** and is based on two factors:
 	1) **Insert location**: All the other location **after insertion index** should shift away. For example in the worse scenario if we have a n long array and we inserted at the first index all the n elements should shift away! *which is not desired.*
