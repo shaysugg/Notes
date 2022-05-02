@@ -22,8 +22,8 @@ example(of: "Usage of linked list") {
     list.push(2)
     list.push(3)
     list.append(1)
-    
-    let node = list.node(at: 2)!
+
+    let node = list.node(at: 0)!
     list.insert(10, after: node)
     
     print(list)

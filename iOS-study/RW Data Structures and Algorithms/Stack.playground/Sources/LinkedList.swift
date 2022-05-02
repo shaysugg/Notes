@@ -21,7 +21,7 @@ extension Node: CustomStringConvertible {
 }
 
 
-public class LinkedList<Value> {
+public struct LinkedList<Value> {
     var head: Node<Value>?
     var tail: Node<Value>?
     
@@ -33,14 +33,14 @@ public class LinkedList<Value> {
     
     //adding
     
-    public func push(_ value: Value){
+    public mutating func push(_ value: Value){
         head = Node(value: value, next: head)
         if tail == nil {
             tail = head
         }
     }
     
-    public func append(_ value: Value) {
+    public mutating func append(_ value: Value) {
         
         if isEmpty {
             push(value)
@@ -64,7 +64,7 @@ public class LinkedList<Value> {
     }
     
     @discardableResult
-    public func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
+    public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
         guard tail !== node else {
             append(value)
             return tail!
@@ -75,5 +75,62 @@ public class LinkedList<Value> {
     }
     
     //removing
+    
+    public mutating func pop() -> Value? {
+        defer {
+            head = head?.next
+            if isEmpty {
+                tail = nil
+            }
+        }
+        
+        return head?.value
+    }
+    
+    @discardableResult
+    public mutating func removeLast() -> Value? {
+        if isEmpty {
+            return nil
+        }
+        
+        if head?.next != nil {
+            return pop()
+        }
+        
+        var prev = head!
+        var current = head!
+        
+        while let next = current.next {
+            prev = current
+            current = next
+        }
+        
+        prev.next = nil
+        tail = prev
+        return current.value
+    }
+    
+    @discardableResult
+    public mutating func remove(after node: Node<Value>) -> Value? {
+        defer {
+            if node.next === tail {
+                tail = node
+            }
+            
+            node.next = node.next?.next
+        }
+        
+        return node.next?.value
+    }
+}
+
+extension LinkedList: CustomStringConvertible {
+    public var description: String {
+        
+        guard let head = head else {
+            return "Empty List"
+        }
+        return String(describing: head)
+    }
 }
 
