@@ -1,5 +1,4 @@
 import Foundation
-import LinkedList_PageSources
 
 
 public protocol Queue {
@@ -27,21 +26,3 @@ public struct ArrayQueue<T>: Queue {
     
     public var peek: T? { array.last }
 }
-
-public struct LinkedListQueue<T>: Queue {
-    public mutating func enqueue(_ element: T) -> Bool {
-        linkedList.append(element)
-        return true
-    }
-    
-    public mutating func dequeue() -> T? {
-        linkedList.removeLast()
-    }
-    
-    public var isEmpty: Bool { linkedList.isEmpty }
-    
-    var linkedList = LinkedList<T>()
-    
-    public var peek: T? { linkedList.tail?.value }
-}
-
