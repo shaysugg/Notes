@@ -1,8 +1,8 @@
 import Foundation
 
 public class Node<Value> {
-    var value: Value
-    var next: Node<Value>?
+    public fileprivate(set) var value: Value
+    public fileprivate(set) var next: Node<Value>?
     
     init(value: Value, next: Node<Value>?) {
         self.value = value
@@ -22,8 +22,8 @@ extension Node: CustomStringConvertible {
 
 
 public struct LinkedList<Value> {
-    var head: Node<Value>?
-    var tail: Node<Value>?
+    public private(set) var head: Node<Value>?
+    public private(set) var tail: Node<Value>?
     
     public init() {}
     
