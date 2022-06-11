@@ -21,4 +21,5 @@ Concurrency
 * `some` keyword instead of Generic Signature: 
 	`func<T>(a: T)` -> `func(a: some T)`
 
+<hr>
 [Original Video 🎥](https://developer.apple.com/videos/play/wwdc2022/110354/)

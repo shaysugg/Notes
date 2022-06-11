@@ -31,4 +31,51 @@ NavigationSplitView {
 ```
 ### UIScene API
 * windows (mostly for macos)
-* MenuBarExtra 
+* MenuBarExtra (building menu bar apps in macOS)
+
+## Forms
+* LabledContent
+* Toggle Lables switchings
+
+## Controls
+* improvements on line limit of TextField
+* DisclocureGroup
+
+* Tables
+	```swift
+	Table(data) {
+		TableColumn() { item in
+			SomeSampleRow(item)
+		}
+	}
+```
+* contentMenu for tables 
+	```swift
+	Table() {...}.contextMenu() {....}
+```
+
+* custom Toolbars
+* search scopes
+	```swift
+	var body: some View {
+	//... spme views
+	.searchable(text:, scope:)
+	
+	}
+```
+![Search Scopes](pictures/search-scope.png)
+## Sharing
+* `PhotosPicker()`
+* `ShareLink()`
+* Transferable
+	???? (Meet Transferable talk)
+
+## Graphics
+* Shape Styles
+* shadowStyle
+* color.gradient
+* text can get animated based on fonts and style with `withAnimation()`
+* Grid, Layout (watch Compose custom layout with SwiftUI)
+
+<hr>
+[Original Video 🎥](https://developer.apple.com/videos/play/wwdc2022/10052/)
