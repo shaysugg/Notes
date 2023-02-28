@@ -36,6 +36,13 @@ struct FooView: some View {
 }
 ```
 
+It's also can be used on **viewModel** classes like this
+```swift
+	@MainActor class ListViewModel: ObservableObject {
+	//...
+	}
+```
+
 *if we turn our class to an actor we probably gonna face some advance problems better checkout the book page 190 for seeing some tricks that we may use to fix them.*
 
 ![Actor Serialization](attachments/actor_serialization.png)
@@ -79,5 +86,3 @@ Global Actors definition is:
 
 }
 ```
-
-//

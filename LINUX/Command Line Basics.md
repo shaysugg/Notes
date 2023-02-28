@@ -38,8 +38,14 @@
 <td>search some text in the output of some command</td>
 </tr>
 
+<tr>
+<td>uniq</td>
+<td>report or omit repeated lines</td>
+</tr>
+
 
 </table>
+
 
 ## SYSADMIN Commands
 <table>
