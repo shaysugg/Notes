@@ -1,4 +1,49 @@
 # Command Line Basics
+## Basic Commands
+
+<table>
+<tr>
+<th style = "width: 30%">Command</th>
+<th>Explanation</th>
+</tr>
+
+<tr>
+<td>mv [destination1] [destination2]</td>
+<td>move , also can be used for renaming a file</td>
+</tr>
+
+<tr>
+<td>man [command]</td>
+<td>full description of command (more detailed than --help)</td>
+</tr>
+
+<tr>
+<td>nano [text file path]</td>
+<td>default linux <b>text editor</b></td>
+</tr>
+
+<tr>
+<td>ps aux</td>
+<td>summery of what system and its resources doing right now in <b>text</b></td>
+</tr>
+
+<tr>
+<td>top</td>
+<td>summery of what system and its resources doing right now in <b>live</b></td>
+</tr>
+
+<tr>
+<td> [some command] | grep "[some text]"</td>
+<td>search some text in the output of some command</td>
+</tr>
+
+<tr>
+<td>uniq</td>
+<td>report or omit repeated lines</td>
+</tr>
+
+
+</table>
 
 ## SYSADMIN Commands
 <table>

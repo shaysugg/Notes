@@ -22,8 +22,9 @@
 ## SwiftUI and UIKit
 * writing swiftUi inside of cell with `cell.conrenrConfiguration = UIHostingConfiguration { //swiftUI code ... }`
 
-## Deprications
+## Deprecations
 * **UIDevice** properties got deprecated
 * * **Deprecated UIScreen**, instead use `UIScesne` and `TraitCollection`
 
+<hr>
 [Original Video 🎥](https://developer.apple.com/videos/play/wwdc2022/10068/)
