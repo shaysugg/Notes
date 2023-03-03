@@ -17,12 +17,8 @@ if we want to modifying it in the custom actor we have to use `MainActor.run {}`
 actor FooViewModel: ObservableObject {
 	@Published @MainActor var someData: String = ""
 
-	func assignData() async {
-	//some async work...
-	//then
-	MainActor.run {
+	@MainActor func assignData() async {
 		someData = "Some Data"
-		}
 	}
 
 }

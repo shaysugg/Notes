@@ -1,8 +1,5 @@
-# About Futures
 `EventLoopFuture<T>` is a future type from SwiftNIO that we can wrap our async function results in it and return them.
 
 ## Map, FlatMap
-Both executes on a future and returns another future. **FlatMap** returns **the same type** of `EventLoopFuture`, **map** returns **another type** of `EventLoopFuture`
-
-## Transform
-looks like map but use when we don't want do any mapping on result we just want to change the result completely if its was successful.
+the difference is that if the callback that processes the `EventLoopFuture` result returns an `EventLoopFuture`, use` flatMap(_:).` If the callback returns a type other than `EventLoopFuture`, use `map(_:)`.
+https://fattywaffles.medium.com/map-and-flatmap-in-vapor-a17f88af431c

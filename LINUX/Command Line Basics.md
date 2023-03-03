@@ -1,46 +1,5 @@
 # Command Line Basics
 
-## Basic Commands
-
-<table>
-<tr>
-<th style = "width: 30%">Command</th>
-<th>Explanation</th>
-</tr>
-
-<tr>
-<td>mv [destination1] [destination2]</td>
-<td>move , also can be used for renaming a file</td>
-</tr>
-
-<tr>
-<td>man [command]</td>
-<td>full description of command (more detailed than --help)</td>
-</tr>
-
-<tr>
-<td>nano [text file path]</td>
-<td>default linux <b>text editor</b></td>
-</tr>
-
-<tr>
-<td>ps aux</td>
-<td>summery of what system and its resources doing right now in <b>text</b></td>
-</tr>
-
-<tr>
-<td>top</td>
-<td>summery of what system and its resources doing right now in <b>live</b></td>
-</tr>
-
-<tr>
-<td> [some command] | grep "[some text]"</td>
-<td>search some text in the output of some command</td>
-</tr>
-
-
-</table>
-
 ## SYSADMIN Commands
 <table>
 <tr>
@@ -48,28 +7,23 @@
 <th style = "width: 20%">Arguments</th>
 <th>Explanation</th>
 </tr>
-
 <tr>
 <td>root -i</td>
 <td> -- </td>
 <td>become root user</td>
 </tr>
-
-
 <tr>
 <td>useradd [username] OR adduser [username]</td>
 <td> -m , -d, -u, -g, -s  </td>
 <td>Add a user with username,
 -m: create a home directory for the user, -d: define where the home dir is -u: define uid for the user, -g: define a group id for the user -s: define the default shell</td>
 </tr>
-
 <tr>
 <td>userdel [username] OR deluser [username]</td>
 <td> -- </td>
 <td>Delete the user with username,
 </td>
 </tr>
-
 </table>
 
 ### Notes
@@ -79,7 +33,6 @@
 
 
 ## Processes
-
 <table>
 <tr>
 <th style = "width: 20%">Command</th>
@@ -323,33 +276,24 @@ Can be use to be for:
 <th style = "width: 40%">Command</th>
 <th>Explanation</th>
 </tr>
-
 <tr>
 <td>dd</td>
 <td>delete a line</td>
 </tr>
-
 <tr>
 <td>u</td>
 <td>undo changes</td>
 </tr>
-
 <tr>
 <td>ctrl+r</td>
 <td>redo changes</td>
 </tr>
-
-
 <tr>
 <td>/ + [[your_text]] </td>
 <td>search your_text in the file (go to next result with n go to previous result with N)</td>
 </tr>
-
 <tr>
 <td>%s/[[search_text]]/[[replace_text]] </td>
 <td>search and replace (g stands for greedy)</td>
 </tr>
-
-
-
 </table>

@@ -1,15 +1,28 @@
 # Linked List
-*(see playground examples for better understanding)*
 
 linked list is a collection of nodes. Each node holds a value and has a reference to the next node.
 
 -   Linked lists are linear and unidirectional. As soon as you move a reference from one node to another, you can’t go back.
-    
 -   Linked lists have a O(1) time complexity for head first insertions. Arrays have O(n) time complexity for head-first insertions.
-    
 -   Conforming to Swift collection protocols such as Sequence and Collection offers a host of helpful methods for a fairly small amount of requirements.
-    
 -   Copy-on-write behavior lets you achieve value semantics.
+
+```Swift
+struct LinkedList<Value> {
+	let head: Node<Value>?
+	let tail: Node<Value>?
+}
+
+class Node<Value> {
+	let value: Value
+	let next: Node?
+
+	init(value: Value, next: Node {
+		self.value = value
+		self.next = next
+	}
+}
+```
 
 ## Linked List Operations
 * **push**: Adds a value at the front of the list. (head-first insertion) O(1)
@@ -24,16 +37,19 @@ linked list is a collection of nodes. Each node holds a value and has a referenc
 Since linked list are heavy depended on the reference types if we have two linked list that second one did copied from the first one then some mutation on one of these linked list could have some side affects on another.
 ```Swift
 example(of: "array cow") {
-  let array1 = [1, 2]
-  var array2 = array1
+  let list1 = LinkedList<Int>()
+  list1.append(1)
+  list1.append(2)
+  var list2 = LinkedList<Int>()
+  list2 = list1
 
-  print("array1: \(array1)")
-  print("array2: \(array2)")
+  print("list1: \(list1)")
+  print("list2: \(list2)")
 
-  print("---After adding 3 to array 2---")
-  array2.append(3)
-  print("array1: \(array1)")
-  print("array2: \(array2)")
+  print("---After adding 3 to list2---")
+  list1.append(3)
+  print("list1: \(list1)")
+  print("list2: \(list2)")
 }
 //👇🏻 OUTPUT
 //List1: 1 -> 2
