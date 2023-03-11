@@ -111,3 +111,29 @@ subscript(position: Index) -> String {
 The subscript method makes a `RandomAccessCollection`, and the setter makes a `MutableCollection`.
 ### RangeReplaceableCollection 
 These collections let you modify whole subranges at a time. This conformance lets you **delete**, insert **and** **append** elements.
+```Swift 
+struct FizzBuzz: RangeReplaceableCollection {
+	func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, String == C.Element {
+	        //....
+	}
+}
+```
+
+#### Slice Memory Management
+Slices **don**’t allocate **new memory** but reference the memory of the original collection. This reference means they’re cheap **O(1)** to create because they **don’t copy elements**.
+But because a Slice references the original collection, even a tiny slice will extend the original collection’s lifetime. If you want to disconnect from the original collection so it can deallocate when it goes out of scope, you can explicitly make a copy with the appropriate initializer.
+``` Swift
+let numbers = Array(0..<100)
+let upperHalf = numbers[(numbers.count/2)...]
+let newNumbers = Array(upperHalf)
+```
+
+## Lazy evaluation
+``` Swift
+let firstThree = FizzBuzz()
+  .compactMap(Int.init)
+  .filter { $0.isMultiple(of: 2) }
+  .prefix(3)
+```
+In the above example all 100 strings and compacts to an array of 53 integers. It then filters that array by creating a new array of 27 even integers. **Finally, it picks off the first three values** of `[2, 4, 8]`
+but if we use `FizzBuzz().lazy` functions like `map, filter, reduce` only execute on-demand. this means **compactMap** and **isMultiple(of:)** only 8 times to find three values.

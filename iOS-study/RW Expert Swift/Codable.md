@@ -1,0 +1,40 @@
+## Encode and Decode from different data types
+We use abstractions like `Decoder` and `Encoder` which allow us to have different decoding and encoding implementations based on different data types like `Json` or `plist` .
+![different coding](attachments/different-coding.png)
+## `JsonDecoder` Customization
+``` Swift
+decoder.keyDecodingStrategy = .convertFromSnakeCase
+decoder.dataDecodingStrategy = .base64
+```
+adding a new custom decoding strategy
+*see the original source for the complete implemantation*
+``` Swift
+extension JSONDecoder.KeyDecodingStrategy {
+  static var convertFromKebabCase: JSONDecoder.KeyDecodingStrategy = 
+  .custom({ keys in
+	//implemantations ....
+}) 
+}
+```
+## Custom Coding Initializers
+first we need to write the init and then choose our coding container.
+different containers explained as below
+![](attachments/coding-container.png)
+* Single value container:
+``` Swift
+let container = try decoder.singleValueContainer()
+let cost = try container.decode(String.self)
+```
+* Container by coding key
+``` Swift
+init(from decoder: Decoder) throws {
+  let container = try decoder.container(keyedBy: CodingKeys.self)
+  self.id = try container.decode(UUID.self, forKey: .id)
+  //...
+}
+
+enum CodingKeys: String, CodingKey {
+	case id
+	//....
+}
+```
