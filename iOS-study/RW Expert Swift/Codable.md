@@ -5,6 +5,7 @@ We use abstractions like `Decoder` and `Encoder` which allow us to have differen
 ``` Swift
 decoder.keyDecodingStrategy = .convertFromSnakeCase
 decoder.dataDecodingStrategy = .base64
+decoder.dateDecodingStrategy = .formatted(dateFormatter)
 ```
 adding a new custom decoding strategy
 *see the original source for the complete implemantation*
