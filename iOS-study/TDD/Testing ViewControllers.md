@@ -44,3 +44,5 @@ stepController.loadViewIfNeeded()
 ```
 
 Following this pattern allows you to instantiate a fresh view controller for each test, and it affords the option to set up and tear down the view controller for each test.
+## Extra Notes
+* calling `viewWillAppear` perfoems view lifecycle events and may have side effects. It's usually better to extract the code that we want to test from it to a different function.
