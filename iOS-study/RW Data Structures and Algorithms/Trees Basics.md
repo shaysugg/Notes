@@ -76,7 +76,7 @@ public func traversPreOrder(visit: (TreeNode) -> Void) {
 }
 ```
 ### Post-order traversal (LRC)
-<img src="./Images/binary-tree-lrc.png" alt="rr">
+![lrc](Images/binary-tree-lrc.png)
 ```Swift
 public func traversPostOrder(visit: (TreeNode) -> Void) {
 	letfChild?.traversPostOrder(visit)
