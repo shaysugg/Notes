@@ -59,7 +59,7 @@ condition ? try valueTrue() : try valueFalse()
 ```
 `rethrow` helps to throw the passed function parameters errors. if they dont throw it's fine to write the higher level function without `try`. ([more about rethrow](https://www.avanderlee.com/swift/rethrows/))
 
-## The Funamental Types
+## The Fundamental Types
 * named types (protocols, enumerations, structures and classes)
 * compound types (functions and tuples)
 
