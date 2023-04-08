@@ -1,36 +1,3 @@
-# Some Notes about Combine
-
-## How to write a custom subscriber 
-
-its just a struct that conforms to subscriber.
-
-```swift
-struct MySUB: Subscriber {
-    typealias Input = Int
-    typealias Failure = Never
-    var combineIdentifier = CombineIdentifier() 
-  
-   func receive(subscription: Subscription) {
-      // this only call once when subscriber subscribe to publisher
-       subscription.request(.max(5))
-    }
-    
-   func receive(_ input: Int) -> Subscribers.Demand {
-     //this getting called on each value recieve
-     //we can put a logic and specify how many othe requests we want in here
-        print("RECIEVED \(input)")
-        return .none
-    }
-    
-   func receive(completion: Subscribers.Completion<Never>){
-     //called only once when error or complition happends
-        print("Completed! \(completion)")
-   }
-}
-```
-
-## Operators
-
 ### Collect
 
 we can collect by two factors, **time** and **count** heres a example of collecting with count.
@@ -47,7 +14,7 @@ we can collect by two factors, **time** and **count** heres a example of collect
 
 ### FlatMap
 
-*Uses when a publisher has a value that publish somthing* 
+*Uses when a publisher has a value that publish something* 
 flattens the output from all received publishers into a single publisher.
 
 ### Debounce and Throttle

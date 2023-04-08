@@ -14,3 +14,6 @@ The connection between the publisher and the subscriber is the subscription.
 ![](attachments/publisher-subscriber.png)
 ## Future
 A Future is a publisher that will eventually produce a single value and finish, or it will fail.
+## Subjects
+* `CurrentValueSubject`
+* `PassthroughSubject`
