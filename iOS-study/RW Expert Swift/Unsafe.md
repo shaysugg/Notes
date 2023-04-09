@@ -70,3 +70,66 @@ all of the above pointers are read-only. the read-and-write form of them are:
 • `UnsafeMutablePointer<Type>`
 • `UnsafeMutableRawBufferPointer`
 • `UnsafeMutableBufferPointer<Type>`
+### Loading Data to a Raw Pointer Example
+```Swift
+let int16bytesPointer = UnsafeMutableRawPointer.allocate(
+  byteCount: 2,
+  alignment: 2)
+
+defer {
+  int16bytesPointer.deallocate()
+}
+int16bytesPointer.storeBytes(of: 0x1122, as: UInt16.self)
+```
+### Buffer Raw Pointer Example
+```Swift
+let size = MemoryLayout<UInt>.size // 8
+let alignment = MemoryLayout<UInt>.alignment // 8
+
+let bytesPointer = UnsafeMutableRawPointer.allocate(
+  byteCount: size,
+  alignment: alignment)
+
+defer { bytesPointer.deallocate() }
+
+bytesPointer.storeBytes(of: 0x0102030405060708, as: UInt.self)
+
+let bufferPointer = UnsafeRawBufferPointer(
+  start: bytesPointer,
+  count: 8)
+
+for (offset, byte) in bufferPointer.enumerated() {
+  print("byte \(offset): \(byte)")
+}
+```
+## Memory Binding
+Specifying an area in memory as a value of a specific type. To rebind from one type to another type safely, both types should be **related** and **layout compatible**. here are some related concepts to memory binding.
+### Punning
+part of memory is bound to a type, then you bind it to a different and unrelated type. (bad thing, unexpected behaviours)
+### Related types
+-   Both types are identical or one is a typealias of the other. Somewhat logical, isn’t it?
+-   One type may be a tuple, a struct or an enum that contains the other type.
+-   One type may be an existential (a protocol) that conforming types will contain the other type.
+-   Both types are classes, and one is a subclass of the other.
+### Layout Compatibility
+two types are mutually layout compatible means they have the same size and alignment or contain the same number of layout compatible types.
+### Strict aliasing
+If you have two pointers of value types or class types, they both must be related. This means that changing the value of one pointer changes the other pointer in the same way. (both pointers are aliases to each other)
+## Safe Rebinding
+### `bindMemory`
+used it in the previous examples
+### `withMemoryRebound`
+```Swift
+typedPointer1.withMemoryRebound(
+  to: Bool.self,
+  capacity: count * size) {
+  (boolPointer: UnsafeMutablePointer<Bool>) in
+  print(boolPointer.pointee) // DON'T pass the pointer out of this closure
+}
+```
+### `assumingMemoryBound`
+This did not rebind the memory to those types. It relied on the precondition that the memory is already bound to this type. And, of course, if the memory wasn’t already bound to that type, an undefined behavior will occur.
+```Swift
+let assumedP1 = rawPtr
+  .assumingMemoryBound(to: UInt16.self)
+```
