@@ -55,7 +55,14 @@ cancellable2 = pub
 //whithout share the two subscribers will recive different values.
 ```
 
-## Debging Tools
+### Collect
+collect values emitted by publisher at specific intervals
+``` Swift
+sourcePublisher
+  .collect(.byTime(DispatchQueue.main, .seconds(collectTimeStride)))
+```
+
+## Debuging Tools
 
 * print()
 * handleEvents(receiveSubscription:receiveOutput:receiveCompletion:rece iveCancel:receiveRequest:)

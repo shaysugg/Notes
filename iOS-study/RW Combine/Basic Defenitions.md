@@ -17,3 +17,12 @@ A Future is a publisher that will eventually produce a single value and finish, 
 ## Subjects
 * `CurrentValueSubject`
 * `PassthroughSubject`
+### Attach a subjects to the publisher
+``` Swift
+let sourcePublisher = PassthroughSubject<Date, Never>()
+
+let subscription = Timer
+  .publish(every: 1.0 / valuesPerSecond, on: .main, in: .common)
+  .autoconnect()
+  .subscribe(sourcePublisher)
+```
