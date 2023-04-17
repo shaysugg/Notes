@@ -62,10 +62,10 @@ sourcePublisher
   .collect(.byTime(DispatchQueue.main, .seconds(collectTimeStride)))
 ```
 
-## Debuging Tools
+## Debugging Tools
 
-* print()
-* handleEvents(receiveSubscription:receiveOutput:receiveCompletion:rece iveCancel:receiveRequest:)
-* breakpointOnError()
-* breakpoint(receiveSubscription:receiveOutput:receiveCompletion:)
+* `print()`
+* `handleEvents(receiveSubscription:receiveOutput:receiveCompletion:rece iveCancel:receiveRequest:)`
+* ` breakpointOnError()`
+* `breakpoint(receiveSubscription:receiveOutput:receiveCompletion:)`
 

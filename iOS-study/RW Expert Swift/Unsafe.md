@@ -117,7 +117,11 @@ two types are mutually layout compatible means they have the same size and align
 If you have two pointers of value types or class types, they both must be related. This means that changing the value of one pointer changes the other pointer in the same way. (both pointers are aliases to each other)
 ## Safe Rebinding
 ### `bindMemory`
-used it in the previous examples
+```Swift
+let typedPointer = rawPointer.bindMemory(
+  to: UInt16.self,
+  capacity: count)
+```
 ### `withMemoryRebound`
 ```Swift
 typedPointer1.withMemoryRebound(
@@ -132,4 +136,11 @@ This did not rebind the memory to those types. It relied on the precondition tha
 ```Swift
 let assumedP1 = rawPtr
   .assumingMemoryBound(to: UInt16.self)
+```
+
+## Overflow operations
+``` Swift
+UInt8.max + 1 //Error
+UInt8.max &+ 1 // 0
+//& means overflow operation
 ```
