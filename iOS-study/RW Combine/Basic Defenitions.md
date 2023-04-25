@@ -14,6 +14,12 @@ The connection between the publisher and the subscriber is the subscription.
 ![](attachments/publisher-subscriber.png)
 ## Future
 A Future is a publisher that will eventually produce a single value and finish, or it will fail.
+* Future is a class.
+* Upon creation, it **immediately** invokes your closure to start computing the result and fulfill the promise as soon as possible.
+* It stores the result of the fulfilled Promise and delivers it to **current** and **future** subscribers.
+
+The Future is a convenient way to immediately start performing some work (without waiting for subscriptions) while performing work only once and delivering the result to any amount of subscribers.
+It‘s a good candidate to use for when you need to **share** the single result a network request produces!
 ## Subjects
 * `CurrentValueSubject`
 * `PassthroughSubject`
