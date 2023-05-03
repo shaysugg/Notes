@@ -10,7 +10,7 @@ two main mechanisms for storing and calling functions:
 * **Static dispatch**: 
   happens when you know for sure that a function will never change.
   *global functions, methods declared in structs, methods on final classes.*
-* **Static dispatch**:
+* **Dynamic dispatch**:
   When you add pesky inheritance and protocols
  compiler can’t know ahead of time what the exact address of a function will be. Instead, it uses something called the witness table.
   ![witness table](attachments/witness-table.png)
@@ -36,20 +36,20 @@ greeter.leave() //Bye
 
 ```
 extension methods rely entirely on **static** dispatch. There is no table involved in calling leave.
-## Multiple conformence
+## Multiple conformance
 ```Swift
 func localizedGreet(with greeter: Greeter & Localizable)
 ```
 we can compose a struct type with protocols (Date & Codable), a class type with protocols (UITableViewCell & Selectable) or multiple protocols.
 
-## Conditinal Conformence
+## Conditional Conformance
 ```Swift
 extension UITableViewDelegate where Self: UIViewController {
   func showAlertForSelectedCell(at index: IndexPath) { ... }
 }
 ```
 ### Synthesized protocol conformance
-like `Equatable` , `Hashable`, `Comparable`, `Codable`. By comforming to protocol like these swift will generate a synthesized protocol implementation for us.
+like `Equatable` , `Hashable`, `Comparable`, `Codable`. By conforming to protocol like these swift will generate a synthesized protocol implementation for us.
 
 ## PAT
 protocols with associated types (!)
