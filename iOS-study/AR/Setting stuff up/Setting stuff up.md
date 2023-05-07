@@ -91,6 +91,7 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 > When we call this function, ARKit creates a ray that **extends in the positive z-direction** from the argument screen space point, to determine if any of the argument targets exist in the physical environment anywhere along the ray
 
 ``` Swift
+let focusPoint = CGPoint(x: 0, y: 10)
 if let query = sceneView.raycastQuery(from: focusPoint, allowing: .estimatedPlane, alignment: .horizontal) {
 	let result = sceneView.session.raycast(query)
 }
