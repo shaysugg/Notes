@@ -17,7 +17,7 @@
 	* ![](attachments/cpu-gpu-balance-metal.png)
 * Why GPU programming is expensive
 	* state validation
-	* shaders complition
+	* shaders completion
 	* sending work to GPU
 	* ![](attachments/cpu-gpu-balance.png)
 
