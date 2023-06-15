@@ -7,10 +7,9 @@
 
 ## Render Pipeline Descriptors
 ![](attachments/render-pipeline.png)
-* The **render pipeline** holds all of the directions necessary to your shape on the screen.
+* The **render pipeline** holds all of the directions necessary to put your shape on the screen.
 * **The render pipeline descriptors** all of the configurations api
 * The render pipeline descriptors baked to **Render pipeline state**
-* 
 
 ## Metal View
 if we want to get anything on screen it needs to be part f CoreAnimation tree, in metal it is CAMetalLayer

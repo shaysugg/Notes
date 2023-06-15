@@ -1,5 +1,5 @@
-what is good software design? how we mesasure it?
-## Encapsulate what vaires
+what is good software design? how we measure it?
+## Encapsulate what varies
 ### Encapsulations on function level
 In the below example `getOrderTotal` tax calculating part can change in the future (based on supporting another countries) but the rest of the function has a lower chance for changes.
 ```Swift
@@ -38,7 +38,7 @@ func getTaxRate(country) {
 }
 ```
 ### Encapsulations on class level
-It's better to seperate classes to have less responsibility and their purpose become more underestandable.
+It's better to separate classes to have less responsibility and their purpose become more understandable.
 **Example:**
 * before:
 ![](attachments/before-encapsulation-class.png)
