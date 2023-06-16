@@ -35,6 +35,9 @@ scan emits **each** value with the transformation that did provided for it
 1..3 -> reduce {first + last} -> 6 
 1..3 -> scan {first + last} -> 1 , 3 , 6
 
+### ReplaceEmpty
+When you have a publisher that emits zero values and finishes you can use `replaceEmpty` to publish one value.
+
 ### Share
 
 if you want to **subscribe multiple** to **one publisher** you should use `share` on that publisher then subscribe to it. **otherwise each subscribe runs the publisher again and different values for each subscriber can get generetated.** [more](https://developer.apple.com/documentation/combine/publishers/merge/share())
