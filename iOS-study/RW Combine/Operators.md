@@ -40,7 +40,7 @@ When you have a publisher that emits zero values and finishes you can use `repla
 
 ### Share
 
-if you want to **subscribe multiple** to **one publisher** you should use `share` on that publisher then subscribe to it. **otherwise each subscribe runs the publisher again and different values for each subscriber can get generetated.** [more](https://developer.apple.com/documentation/combine/publishers/merge/share())
+if you want to **subscribe multiple** to **one publisher** you should use `share` on that publisher then subscribe to it. **otherwise each subscribe runs the publisher again and different values for each subscriber can get generated.** [more](https://developer.apple.com/documentation/combine/publishers/merge/share())
 
 ```swift
 let pub = (1...3).publisher
