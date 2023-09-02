@@ -29,10 +29,10 @@ flattens the output from all received publishers into a single publisher.
 
 ### Scan and Reduce
 
-**reduce** waits for publisher to finish and then do the tranformation with all the values, and emits **one** final result.
+**reduce** waits for publisher to finish and then do the transformation with all the values, and emits **one** final result.
 scan emits **each** value with the transformation that did provided for it
 
-1..3 -> reduce {first + last} -> 6 
+1..3 -> red   {first + last} -> 6 
 1..3 -> scan {first + last} -> 1 , 3 , 6
 
 ### ReplaceEmpty
@@ -58,6 +58,7 @@ cancellable2 = pub
 //whithout share the two subscribers will recive different values.
 ```
 
+The first subscriber triggers the “work” of share()’s upstream publisher. The second subscriber will simply “connect” to it and receive values at the same time as the first.
 ### Collect
 collect values emitted by publisher at specific intervals
 ``` Swift

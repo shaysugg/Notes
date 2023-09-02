@@ -11,7 +11,7 @@ class DataSource {
 }
 ```
 ### Stubs 
-Stubs stand in for the original object and provide canned responses. These are often used to implement one method of a protocol and have empty or nil returning implementations for the others.
+Stubs stand in for the original object and provide **canned responses**. These are often used to implement one method of a protocol and have empty or nil returning implementations for the others.
 ```Swift 
 class StubDataSource: DataSourceProtocol {
 	func getNumberOfItems() -> Int { 5 }

@@ -10,12 +10,16 @@ The `sink` operator will continue to receive as many values as the publisher emi
 Subscriptions return an instance of AnyCancellable as a cancellation token, which makes it possible to cancel the subscription when you’re done with it.
 ## Subscription
 The connection between the publisher and the subscriber is the subscription.
+
+**Publishers** are mostly inanimate entities. When you **subscribe** to a publisher, it instantiates a **subscription** which is responsible for receiving demands from the subscribers and producing the events.
 ## How Publishers and Subscribers work together
 ![](attachments/publisher-subscriber.png)
+
+![](attachments/subscription-machanism.png)
 ## Future
 A Future is a publisher that will eventually produce a single value and finish, or it will fail.
 * Future is a class.
-* Upon creation, it **immediately** invokes your closure to start computing the result and fulfill the promise as soon as possible.
+* Upon creation, it ==immediately== invokes your closure to start computing the result and fulfill the promise as soon as possible.
 * It stores the result of the fulfilled Promise and delivers it to **current** and **future** subscribers.
 
 The Future is a convenient way to immediately start performing some work (without waiting for subscriptions) while performing work only once and delivering the result to any amount of subscribers.
