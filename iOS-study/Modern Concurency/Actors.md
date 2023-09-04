@@ -41,7 +41,7 @@ It's also can be used on **viewModel** classes like this
 
 *if we turn our class to an actor we probably gonna face some advance problems better checkout the book page 190 for seeing some tricks that we may use to fix them.*
 
-![Actor Serialization](attachments/actor_serialization.png)
+![Actor Serialization](actor_serialization.png)
 
 ## `nonsolated` Methods
 if in our actors we have functions that **don't modify the state of actor** we can use them like `nonisolated func foo() {}`. this would act the function as a **default class function**  and some boost in our performance of the app.

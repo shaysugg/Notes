@@ -87,11 +87,13 @@ func fetchStreamOfFOOs() async throws -> [String] {
 ```  
 
 ### How Error raise in tasks
-![task throw error](./attachments/throw_error.png)
+![task throw error](throw_error.png)
 ![canceling task](../attachments/throw_error.png)
 
 ### How tasks getting canceled
-![](./attachments/canceling_task.png)
+![](canceling_task.png)
+
+always check Task.isCancelled when about to start a expensive work
 
 
 ### Bird Eye view of async/await

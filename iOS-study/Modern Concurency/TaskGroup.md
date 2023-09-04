@@ -68,11 +68,11 @@ let strings = try await withThrowingTaskGroup(
 ## Data Races in TaskGroups
 A data race occurs when **multiple threads** access the same data in memory, and at least one of them is trying to **modify** that data.
 
-![data race](attachments/taskgroup_data_race.png)
+![data race](taskgroup_data_race.png)
 
 So which part of a `TaskGroup` is safe for mutating a shared state?
 
-![Task Group Safe code](attachments/taskgroup_safe_code.png)
+![Task Group Safe code](taskgroup_safe_code.png)
 
 * It’s **mostly safe** to modify shared state from the **synchronous** parts of the code (in green) — for example, from outside the task group.
 * It’s **somewhat safe** to modify state from **asynchronous** parts (in orange), if the compiler doesn’t complain. But to do that, you have to be sure you aren’t introducing a data race.
