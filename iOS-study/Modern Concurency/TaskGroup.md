@@ -45,7 +45,7 @@ func doSomethingByPerformingAnAsyncOperation() async throws {
 	//some heavy operation that returns an string eventually
 }
 ```
-
+* New in iOS 17: we can also use `withDiscardingTaskGroup`
 ## Reduce group
 For cleaner syntax, we can use `reduce` on the group to return our desired result. note that we need to use another `withThrowingTaskGroup` initializers. here is the example:
 
@@ -79,4 +79,19 @@ So which part of a `TaskGroup` is safe for mutating a shared state?
 * It’s **dangerous** to modify state from the **concurrent** parts (in red), unless you use a safety mechanism.
 
  Best practice for mutating shared state In the dangerouse areas is define mutating components as an **Actor**
- 
+
+## Task group patterns
+Sometimes we don't want to add so many tasks in our group since it may hurt the performance.
+We can use a pattern like this:
+```Swift
+withTaskGroup(of: Something.self) { group in
+    for _ in 0..<maxConcurrentTasks {
+        group.addTask { }
+    }
+    while let <partial result> = await group.next() {
+        if !shouldStop { 
+            group.addTask { }
+        }
+    }
+}
+```

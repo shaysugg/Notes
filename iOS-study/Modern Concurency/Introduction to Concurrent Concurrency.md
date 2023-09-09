@@ -92,10 +92,7 @@ func fetchStreamOfFOOs() async throws -> [String] {
 
 ### How tasks getting canceled
 ![](canceling_task.png)
-
-always check Task.isCancelled when about to start a expensive work
-
-
+More about [Task Cancellation](Task%20Cancellation.md)
 ### Bird Eye view of async/await
 
 * functions
