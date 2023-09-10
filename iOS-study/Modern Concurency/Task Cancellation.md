@@ -3,7 +3,7 @@ This is how a task tree cancellation works.
 
 **Cancellation is cooperative**
 When a parent send the signal of a cancellation to its child task the child task **doesn't cancelled immediately**.
-It set `Task.isCancelled` on that task.
+It set `Task.isCancelled` on that task. Task getting informed that its result is no longer needed.
 If we have an expensive task we should check for cancellation before starting it
 
 We can use  

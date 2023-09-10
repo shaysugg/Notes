@@ -18,3 +18,6 @@ async let bar = try await getBar()
 async let zee = try await getZee()
 ```
 * They will have a **structured relationship** with their parent tasks which is important when we want to instrument and debugging or cancelling them.
+
+## Flavors of Tasks
+![Flavors of Tasks](attachments/flavors-of-tasks.png)

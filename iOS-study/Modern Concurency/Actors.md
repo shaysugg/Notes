@@ -46,16 +46,6 @@ It's also can be used on **viewModel** classes like this
 ## `nonsolated` Methods
 if in our actors we have functions that **don't modify the state of actor** we can use them like `nonisolated func foo() {}`. this would act the function as a **default class function**  and some boost in our performance of the app.
 
-## Sendable
-in the swift concurrency topics it means: **safe to use in concurrent code**
-* there is a Sendable protocols that some classes conforms to: like **Actors**
-* there is an annotation `@Sendable` which makes closure sendable
-```swift
-@escaping @Sendable () async -> Void
-```
-
-🔥 The best practice in your own code is to require that any **closures** you run **asynchronously** be `@Sendable`, and that any **values** you use in **asynchronous** code adhere to the `Sendable` protocol.
-
 
 ## Global Actors
 Same as `@MainActor` global actors getting used where we need a **single, shared actor that’s accessible from anywhere.**
