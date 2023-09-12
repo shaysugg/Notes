@@ -56,3 +56,15 @@ class PartialMockDataSource: DataSource {
 	 }
 }
 ```
+## Spy
+spy is a partial mock. It is used to record how it was called by the object under test, and you can then make assertions on it. The main difference is that, unlike mock objects, spy objects do carry out **real** actions.
+```Swift
+class SpyMockDataSource: DataSource {
+	var numberfetched = false
+	
+	override func getNumberOfItems() -> Int { 
+		numberfetched = true
+		return realNumberFromDB()
+	 }
+}
+```
