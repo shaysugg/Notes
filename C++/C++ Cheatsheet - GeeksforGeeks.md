@@ -42,9 +42,7 @@ cout << "Hello World!" << endl;
 ```
 
 ## Comments in C++
-Comments can be used for providing an explanation of the code that makes it easier for others to understand the functionality of the code.
-Any statement after the comments will not be executed by the compiler. So comments can also be used to temporarily disable (comment out) the execution of some specific statements without deleting the statements.
-### Types of Comments:
+
 ### **1\. Single-lined**
 We use two forward slashes **//** to indicate the single-line comment.
 ```c++
@@ -60,23 +58,16 @@ cout << "GeeksforGeeks";
 ```
 ## **Conditional Statements in C++**
 Conditional statements allow us to control the flow of the program based on certain conditions. It helps us to run a specific section of code based on a condition.
-
 ### **1\. The if statement**
-
 If statement executes a block of code if and only if the given condition is true.
-
 #### Syntax
-
 ```c++
 if (condition) {
     // Code to be executed if the condition is true
 }
 ```
-
 ### 2\. Nested if statement
-
 #### Syntax
-
 ```
 if (condition1) {
     // Code to be executed if condition1 is true
@@ -243,11 +234,10 @@ boolean b = false;
 ### **6\. String**
 
 -   A string is a collection of characters surrounded by double quotes. The string data type is used to store words or sentences.
--   The string data type is part of the Standard Library and is defined in the **<string>** header file.
--   We have to include **<string>** header file for using string class.
-
+-   The string data type is part of the Standard Library and is defined in the `<string>` header file.
+*  We have to include `<string>` header file for using string class.
+* 
 #### **Syntax**
-
 ```
 string str = "GeeksforGeeks";
 ```
