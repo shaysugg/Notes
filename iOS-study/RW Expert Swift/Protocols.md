@@ -48,9 +48,17 @@ extension UITableViewDelegate where Self: UIViewController {
   func showAlertForSelectedCell(at index: IndexPath) { ... }
 }
 ```
+You can also drill down to extend generic types where their generic parameter conforms to a protocol
+```Swift
+extension Array where Element: Greetable {
+  var allGreetings: String {
+    self.map { $0.greet() }.joined()
+  }
+}
+```
 ### Synthesized protocol conformance
 like `Equatable` , `Hashable`, `Comparable`, `Codable`. By conforming to protocol like these swift will generate a synthesized protocol implementation for us.
 
 ## PAT
 protocols with associated types (!)
-
+![Swift Generics](../WWDC2022/Embrace%20%Swift%20Generics.md)

@@ -85,4 +85,6 @@ print(classPointA.x) // affected, prints 10.0
 Stack allocations are orders of magnitude faster than heap allocations, this is where value types get their fast reputation.
 ![Heap VS Stack](attachments/heap-vs-stack.png)
 ### Difference 5: Lifetime and identity
-Value types, generally live on the stack and are cheap to copy. Values don’t have the notion of a lifetime or intrinsic identity. References do have lifetimes.
+Value types, such as structures and enumerations, generally live on the stack and are cheap to copy. Values don’t have the notion of a lifetime or intrinsic identity. References do have lifetimes, and because of that, you can define a deinit function for them. They also automatically have an identity because they reside at a specific place in memory you can use to identify them.
+
+Note: It’s possible to give a value type identity by specifying a unique property attribute. The Identifiable protocol, which adds a Hashable (and Equatable) id property, does this. The SwiftUI framework defines property wrappers, such as @State, which among other things imbue lifetime into simple value types
