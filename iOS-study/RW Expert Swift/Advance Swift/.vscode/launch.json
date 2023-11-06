@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:Advance swift}",
+            "name": "Debug Advance swift",
+            "program": "${workspaceFolder:Advance swift}/.build/debug/Advance swift",
+            "preLaunchTask": "swift: Build Debug Advance swift"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:Advance swift}",
+            "name": "Release Advance swift",
+            "program": "${workspaceFolder:Advance swift}/.build/release/Advance swift",
+            "preLaunchTask": "swift: Build Release Advance swift"
+        }
+    ]
+}

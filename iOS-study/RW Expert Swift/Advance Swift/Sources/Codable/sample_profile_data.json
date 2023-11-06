@@ -1,0 +1,17 @@
+{
+    "id": "11111",
+    "status": "active",
+    "name": "John Doe",
+    "mails": [
+        "jd@aa.com",
+        "john.dd@gmail.com"
+    ],
+    "location": {
+        "city": "NYC",
+        "country": "US",
+        "coordinate": {
+            "long": 10,
+            "lat": 5
+        }
+    }
+}
