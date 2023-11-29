@@ -1,5 +1,6 @@
 ## Pointer vs. reference
 they’re similar in concept, but a reference is more abstract and many of its operations is handled by standard library.
+If you are using a pointer then you need to allocate and initialize the object it points at. If you loose that pointer and you didn’t clear out this object, you can never reach it again. And if you delete the object and keep the pointer, you’ll come across a variety of undefined behaviors if you try to use that pointer again. but when using references most of this behaviors handled by the standard library.
 ## Memory layout
 3 basic concepts of memory layouting:
 - **Size**: This refers to the number of bytes it takes to store a value of this type. A size of four means this type requires four bytes of storage.
@@ -26,9 +27,11 @@ MemoryLayout<IntBoolStruct>.alignment // returns 8
 MemoryLayout<IntBoolStruct>.stride // returns 16
 ```
 ![](memory-layout1.png)
-For the alignment, it makes sense that it is 8 to ensure that intValue is not misaligned. As for stride, it has a value of 16 to maintain the alignment and to reserve enough space for the struct. It can’t be 9, nor can it be 8.
+* For the **alignment**, it makes sense that it is 8 to ensure that intValue is not misaligned.
+**(It usually equal to the alignment of the biggest size of a type you have in your data structure.)**
+* As for **stride**, it has a value of 16 to maintain the alignment and to reserve enough space for the struct. It can’t be 9, nor can it be 8. 
 
-now lets see memory layout of this example (only order of properties have changed)
+Now lets see memory layout of this example (only order of properties have changed)
 ```Swift
 struct BoolIntStruct {
   var boolValue: Bool
