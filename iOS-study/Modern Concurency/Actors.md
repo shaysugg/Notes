@@ -72,3 +72,52 @@ Global Actors definition is:
 
 }
 ```
+## A small practical example
+In this example when we're using counter as an `actor` the counter's count always stayed at 0 (It may switched to 1 or -1 sometimes but gets back to 0 quickly) which means our increment and decrement getting executed **serially**.
+however if we make it a `class` we may see the counter goes to negative or positive numbers greater that one. which means there is no guarantee in the order of increment and decrement. The counter getting **concurrently** mutated and we can't predict what value it's going to have.
+```Swift
+struct SafeCounterView: View {
+    let counter = SafeCounter()
+    @State private var count = 0
+    
+    var body: some View {
+        NavigationStack {
+            VStack {
+                Text(String(count))
+                Button("Start") {
+                    performParalelCounting()
+                }.buttonStyle(.bordered)
+            }
+            .navigationTitle("Counter")
+        }
+    }
+
+    func performParalelCounting() {
+        Task.detached(priority: .low) {
+            for _ in 0...100 {
+                await counter.increase()
+                count = await counter.count
+            }
+        }
+        
+        Task.detached(priority: .low) {
+            for _ in 0...100 {
+                await counter.decrease()
+                count = await counter.count
+            }
+        }
+    }
+}
+
+actor SafeCounter {
+    private(set) var count = 0
+    func increase() async {
+        try! await Task.sleep(for: .seconds(0.3))
+        count += 1
+    }
+    func decrease() async {
+        try! await Task.sleep(for: .seconds(0.3))
+        count -= 1
+    }
+}
+```

@@ -5,6 +5,22 @@
 //     decodeStore()
 // }
 
-exampleOF("") {
-  containerDecoding()
+// exampleOF("") {
+//   containerDecoding()
+// }
+
+exampleOF("MetaTypes") {
+  class Request {
+    let url: String = ""
+    func whoAmI() {
+      print(self)
+      print(Self.self)
+    }
+  }
+
+  class HTTPRequest: Request {}
+
+  let request = HTTPRequest()
+  request.whoAmI()
+
 }

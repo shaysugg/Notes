@@ -1,10 +1,10 @@
 * `self` is usually a **reference** to the object whose scope you’re currently in.
 * In **class and static methods**, `self` has the value of the **current type, not an instance.**
-* `Self` is always an alias to the concrete type of the scope it appears in.
+* `Self` is always an alias to the **concrete** type of the scope it appears in.
 * **meta-types**: the type that holds self in class and static methods.
 
 ## Examples
-1) we declare a **meta-type** variable called `type`. The meta-type can hold not only the `Networker` type itself but also all of its **subclasses**, such as `WebsocketNetworker`. In the case of protocols, a meta-type of a protocol (YourProtocol.Type) can hold the protocol type as well as all concrete types conforming to that protocol.
+1) We declare a **meta-type** variable called `type`. The meta-type can hold not only the `Networker` type itself but also all of its **subclasses**, such as `WebsocketNetworker`. In the case of protocols, a meta-type of a protocol (YourProtocol.Type) can hold the protocol type as well as all concrete types conforming to that protocol.
 ``` Swift
 class WebsocketNetworker: Networker {
   class func whoAmI() -> Networker.Type {

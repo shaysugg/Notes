@@ -24,10 +24,10 @@
 ## Shell Expansions
 **{boundaries}**
 ```bash
-	echo {Z...X}
+	echo {Z..X}
 	Z Y X
 	
-	echo {09 ... 15}
+	echo {09..15}
 	9 10 11 12 13 14 15
 	
 	echo a{A{1,2},B{3,4}}b

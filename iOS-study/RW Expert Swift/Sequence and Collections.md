@@ -79,7 +79,7 @@ struct FizzBuzz: Collection {
 }
 ```
 ### BidirectionalCollection
-This spices up a collection to allow you to **traverse** it both forward and backward by advancing the index appropriately.
+Collection only allows **forward** traversing. Conforming to  `BidirectionalCollection` spices up a collection to allow you to traverse** it both forward and backward by advancing the index appropriately.
 ``` Swift
 extension FizzBuzz: BidirectionalCollection {
 	func index(before i: Index) -> Index {
@@ -88,11 +88,10 @@ extension FizzBuzz: BidirectionalCollection {
 }
 ```
 ### RandomAccessCollection
-This allows a collection to **traverse** elements in any order in constant time. It lets you update the index and measure distances between indices in constant time.
+This one **removes** the need of **traversing**. the `index(before:)` and `index(after:)` won't get called and won't be needed. Instead you use  `index(_:offsetBy:)`. However, in this case, because you chose an `Int` to be your index type and because integers are `Strideable` and `Comparable`, you get the implementation for free.
 ``` Swift
 extension FizzBuzz: RandomAccessCollection { }
 ```
-when we make a collection a RandomAccessCollection, we need to implement a `index(_:offsetBy:)`. However, in this case, because you chose an `Int` to be your index type and because integers are `Strideable` and `Comparable`, you get the implementation for free.
 
 ### MutableCollection
 This refines collections that let you mutate elements through an index. The mutation is all about **poking** individual elements. Importantly, it does not imply the ability to add and remove elements.
@@ -137,3 +136,4 @@ let firstThree = FizzBuzz()
 ```
 In the above example all 100 strings and compacts to an array of 53 integers. It then filters that array by creating a new array of 27 even integers. **Finally, it picks off the first three values** of `[2, 4, 8]`
 but if we use `FizzBuzz().lazy` functions like `map, filter, reduce` only execute on-demand. this means **compactMap** and **isMultiple(of:)** only 8 times to find three values.
+[Lazy Collections](https://www.avanderlee.com/swift/lazy-collections-arrays/)
