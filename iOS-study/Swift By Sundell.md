@@ -37,3 +37,61 @@ extension User.CodingData {
 ```
 
 //TODO Different asserts
+
+## Custom Combine Operators
+for defining a custom operator we need to extend `Publisher` and also put any related condition that we need to to its `Output` and `Failure`.
+```Swift
+extension Publishers where Output == Data, Failure == CustomError {}
+```
+
+### Data Validation[]()
+```Swift
+extension Publisher {
+    func validate(
+        using validator: @escaping (Output) throws -> Void
+    ) -> Publishers.TryMap<Self, Output> {
+        tryMap { output in
+            try validator(output)
+            return output
+        }
+    }
+}
+```
+### Convert to result
+This one makes sinking syntax to an error throwing publisher much nicer.
+```Swift
+extension Publisher {
+    func convertToResult() -> AnyPublisher<Result<Output, Failure>, Never> {
+        self.map(Result.success)
+            .catch { Just(.failure($0)) }
+            .eraseToAnyPublisher()
+    }
+}
+```
+### Async Map 
+```Swift
+extension Publisher {
+    func asyncMap<T>(
+        _ transform: @escaping (Output) async throws -> T
+    ) -> Publishers.FlatMap<Future<T, Error>,
+                            Publishers.SetFailureType<Self, Error>> {
+        flatMap { value in
+            Future { promise in
+                Task {
+                    do {
+                        let output = try await transform(value)
+                        promise(.success(output))
+                    } catch {
+                        promise(.failure(error))
+                    }
+                }
+            }
+        }
+    }
+}
+
+somePublisher.asyncMap {
+		try await someAsyncOperation()
+}
+.eraseToAnyPublisher()
+```
