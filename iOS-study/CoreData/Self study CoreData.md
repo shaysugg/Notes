@@ -68,3 +68,10 @@ let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: self.fetchRequest())
 * You need to pull the changes always manually so you need to pay attention to only call it when is necessary.
 * You can use multiple context.
 * You can use batch requests.
+## Having object with unique property
+Assume we want to have notes with unique name.
+One approach is to check other note names before inserting a new one. which is quite insufficient.
+The other approach is define the property as constraints for the data model. 
+This way if we try to save the view context changes we get an error.
+in order to not get any error and only save the last model with the same property value we can specify view context merge policy to `NSMergeByPropertyObjectTrumpMergePolicy`
+![[core-data-constraints.png]]
