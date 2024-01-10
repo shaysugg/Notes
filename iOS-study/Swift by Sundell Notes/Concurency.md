@@ -85,3 +85,13 @@ class UserListViewController: UIViewController {
     }
 }
 ```
+## Actors
+> Actors work much like classes (that is, they are [passed by reference](https://www.swiftbysundell.com/basics/value-and-reference-types)), with two key exceptions:
+
+- An actor automatically serializes all access to its properties and methods, which ensures that only one caller can directly interact with the actor at any given time. That in turn gives us complete protection against data races, since all mutations will be performed serially, one after the other.
+- Actors don’t support subclassing since, well, they’re not actually classes.
+### Race Conditions
+Actors prevent data races but race conditions are still possible.
+>Race conditions are logical issues that occur when multiple operations end up happening in an unpredictable order.
+
+[Actors](https://www.swiftbysundell.com/articles/swift-actors/)

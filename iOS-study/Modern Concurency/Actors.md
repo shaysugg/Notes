@@ -1,15 +1,13 @@
 # Actors
-As mentioned in the Task groups modifying objects through different threads can cause Data Races. on of the solutions is define classes as actor
+As mentioned in the Task groups modifying objects through different threads can cause Data Races. on of the solutions is define classes as `actor`s.
 
 ```swift
 actor Foo {}
 //istead of 
 class Foo {}
 ```
-
-
 ## MainActor
-if our custom actor has some related to UI properties, like variable with `@Published` property wrapper then we need to put a `@MainActor` property wrapper to make sure it would treat this variable on the `MainActor` not the class own actor and our UI can safely use it.
+If our custom actor has some related to UI properties, like variable with `@Published` property wrapper then we need to put a `@MainActor` property wrapper to make sure it would treat this variable on the `MainActor` not the class own actor and our UI can safely use it.
 
 if we want to modifying it in the custom actor we have to use `MainActor.run {}` to make sure our changes would execute on the `MainActor`
 
@@ -45,8 +43,6 @@ It's also can be used on **viewModel** classes like this
 
 ## `nonsolated` Methods
 if in our actors we have functions that **don't modify the state of actor** we can use them like `nonisolated func foo() {}`. this would act the function as a **default class function**  and some boost in our performance of the app.
-
-
 ## Global Actors
 Same as `@MainActor` global actors getting used where we need a **single, shared actor that’s accessible from anywhere.**
 for example: 
