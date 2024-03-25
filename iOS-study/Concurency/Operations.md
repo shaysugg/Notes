@@ -67,3 +67,33 @@ let op3 = Operation3()
 op1.addDependency(op: op2)
 op2.addDependency(op: op3)
 ```
+## Cancelling Operations
+> If you send a request to an operation to stop running, then the isCancelled computed property will return true. ==Nothing else happens automatically!==
+### Why?
+because canceling can have multiple meanings and it's up to developers to handle it.
+- Should the operation simply throw an exception?
+- Is there cleanup that needs to take place?
+- Can a running network call be canceled?
+- Is there a message to send server-side to let something else know the task stopped?
+- If the operation stops, will data be corrupted?
+### Check For Canceling
+#### At the beginning of the operation
+```Swift
+class NumberOperation: Operation {
+	override func main() {
+		if isCancelled {
+		    state = .finished
+		return
+		}
+	}
+}
+```
+#### In the middle of the operation
+If there are multiple steps It's best to consider where else check for cancelation can be added. usually before starting any heavy or time consuming task we want to check if operation is canceled or not.
+We can also override the `cancel()` method to get notified when cancelling happens. Assume there is a potential of an ongoing network call. It can be cancelled like:
+```Swift
+override func cancel() {
+	super.cancel() 
+	urlSessionTask?.cancel()
+}
+```

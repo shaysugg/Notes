@@ -8,7 +8,7 @@
 examples: [Sync-Async-Serial-Concurrent](Sync-Async-Serial-Concurrent.md)
 ## Serial and Concurent
 * **Serial** queues only have a **single thread** associated with them and thus only allow a single task to be executed at any given time.
-* **Concurrent** queue is able to utilize as many threads as the system has resources for and run multiple tasks at the same time.
+* **Concurrent** queue is able to utilize as many **threads** as the system has resources for and run multiple tasks at the same time.
 examples: [Sync-Async-Serial-Concurrent](Sync-Async-Serial-Concurrent.md)
 
 > Asynchronous doesn’t mean concurrent!

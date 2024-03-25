@@ -31,7 +31,7 @@ struct GermanGreeter: Greetable {
 }
 
 let greeter: Greetable = GermanGreeter()
-greeter.greet() //Hallo
+greeter.greet() //Hello
 greeter.leave() //Bye
 
 ```
@@ -61,4 +61,4 @@ like `Equatable` , `Hashable`, `Comparable`, `Codable`. By conforming to protoco
 
 ## PAT
 protocols with associated types (!)
-![Swift Generics](../WWDC2022/Embrace%20%Swift%20Generics.md)
+[Swift Generics](../WWDC2022/Embrace%20%Swift%20Generics.md)

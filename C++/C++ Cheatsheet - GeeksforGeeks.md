@@ -1,6 +1,6 @@
 This is a C++ programming cheat sheet. It is useful for beginners and intermediates looking to learn or revise the concepts of C++ programming. While learning a new language, it feels annoying to switch pages and find different websites for different concepts that are easily understandable. You can learn [**C++**](https://www.geeksforgeeks.org/c-plus-plus/) concepts very easily using this cheat sheet.
 ## Let’s create our first C++ program
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 int main() {
@@ -9,10 +9,13 @@ int main() {
 }
 ```
 ## Basic Syntax of a Code in C++
-```c++
+```cpp
 // Header files
 #include<bits/stdc++.h>
+
 // std namespace contains various standard library components
+
+//when using namespace you don't need to write std::cout instead you can only write cout
 using namespace std;
 // main() function is the starting point of program execution
 int main()
@@ -29,9 +32,9 @@ cin >> var;
 ```
 
 **2\. Output on the console:** We can print output on the console using **cout** from the **iostream** library.
-```
+```c++
 cout << “Hello World”;
-high-level
+//high-level
 ```
 
 ## New Lines
@@ -68,7 +71,7 @@ if (condition) {
 ```
 ### 2\. Nested if statement
 #### Syntax
-```
+```cpp
 if (condition1) {
     // Code to be executed if condition1 is true
     if (condition2) {
@@ -76,14 +79,11 @@ if (condition1) {
     }
 }
 ```
-
-### 3\. The if-else statement
-
-If the condition inside the if statement is true, then the code inside the if block will get executed, otherwise code inside the else block will get executed.
-
+### 3. The if-else statement
+If the condition inside the if statement is true, then the code inside the if block will get executed, otherwise code inside the else block will get executed.\
 #### Syntax
 
-```
+``` cpp
 if (condition) {
     // Code to be executed if the condition is true
 } 
@@ -92,13 +92,10 @@ else {
 }
 ```
 
-### 4\. The else-if statement
-
+### 4. The else-if statement
 The else if statement allows you to check for multiple conditions sequentially.
-
 #### Syntax
-
-```
+```cpp
 if (condition1) {
     // Code to be executed if condition1 is true
 } 
@@ -109,34 +106,26 @@ else {
     // Code to be executed if all conditions are false
 }
 ```
-
-### 5\. Short-hand if else ( Ternary Operator)
+### 5. Short-hand if else ( Ternary Operator)
 
 Short-hand if else also known as the Ternary operator **(?:)** works just like if-else statements that can be used to reduce the number of lines of code.
-
 ### Syntax
-
 ```
 (condition) ? expression1 : expression2;
 ```
 
 If the condition is true, expression1 will be evaluated and it will become the result of the expression. Otherwise, if the condition is false, expression2 will be evaluated and it will become the result.
-
 ### 6\. Switch statement
 
 The switch statement evaluates the expression and compares the value of the expression with the cases. If the expression matches the value of any of the cases, the code associated with that case will be executed.
 
 > **Break** and **default** keywords are generally used with switch and cases.
-
 ## Break and Default
-
 **Break:** The break keyword is used to exit the switch statement when one of the cases matches.
-
 **Default:** Default keyword is optional in switch statements and the code inside the default block is executed when none of the cases matches the value of the expression.
-
 ### Syntax
 
-```
+```cpp
 switch (expression) {
     case value1:
         // Code to be executed if expression matches value1
@@ -150,9 +139,7 @@ switch (expression) {
         break;
 }
 ```
-
 ## Variables in C++
-
 A variable is a storage location having a name that can hold a value of a specific data type.
 
 -   A variable can be of any data type.
@@ -178,61 +165,41 @@ data_type variable1_name, variable2_name, variable3_name;
 Data types are the type of data that a variable can store in a program.
 
 ### 1\. Integer
-
 -   It is used to store integers.
 -   Integers take 4 bytes of memory.
-
 #### Syntax
 
 ```
 int var = 123;
 ```
-
-### 2\. Character
-
+### 2. Character
 -   It is used to store characters.
 -   It takes 1 bytes of memory.
-
 #### Syntax
-
 ```
 char var = 'a';
 ```
-
 ### 3\. Floating Point
-
 -   It is used for storing single-precision floating-point numbers.
 -   It takes 4 bytes of memory.
-
 #### Syntax
-
 ```
 float num = 1.23;
 ```
-
 ### 4\. Double
-
 -   It is used to store double-precision floating point numbers.
 -   It takes 8 bytes of memory.
-
 #### Syntax
-
 ```
 double num = 1.2345;
 ```
-
 ### 5\. Boolean
-
 -   It is used to store logical values that can be either true or false.
-
 #### **Syntax**
-
 ```
 boolean b = false;
 ```
-
-### **6\. String**
-
+### **6. String**
 -   A string is a collection of characters surrounded by double quotes. The string data type is used to store words or sentences.
 -   The string data type is part of the Standard Library and is defined in the `<string>` header file.
 *  We have to include `<string>` header file for using string class.
@@ -241,17 +208,12 @@ boolean b = false;
 ```
 string str = "GeeksforGeeks";
 ```
-
 ## **Loop in C++**
-
 Loops are used to repeatedly execute a block of code multiple times.
-
 ### Types of Loops
 
 ### 1\. For Loop
-
 For loop helps us to execute a block of code a fixed number of times.
-
 #### Syntax
 
 ```
@@ -261,26 +223,18 @@ for (initialization expr; test expr; update expr)
      // statements we want to execute
 }
 ```
-
 ### 2\. While Loop
-
 While loop repeatedly executes a block of code till the given condition is true.
-
 #### Syntax
-
 ```
 while (condition)
 {
    // statements
- 
    update_condition;
 }
 ```
-
 ### 3\. Do-While Loop
-
 Do-while loop also executes the block of code till the condition is true but the difference between a while and a do-while loop is that the do-while executes the code once without checking the condition and the test condition is tested at the end of the loop body.
-
 #### Syntax
 
 ```
@@ -288,56 +242,37 @@ do {
     // Code to be repeated
 } while (condition);
 ```
-
 ## Arrays in C++
-
 An array is a data structure that allows us to store a fixed number of elements of the same data type in contiguous memory locations.
-
 #### Syntax to Declare an Array
-
 ```
 dataType arrayName[arraySize];
 ```
-
 #### Example
-
 -   C++
+``` C++
+#include <iostream>
+#include <string>
 
-## C++
+using namespace std;
 
-`#include <iostream>`
+int main() {
+    string fruits[] = {"Apple", "Banana", "Orange", "Grapes"};
+    for (int i = 0; i < 4; i++) {
+        cout << "Fruit at index " << i << ": " << fruits[i] << endl;
+    }
+    return 0;
+}
 
-`#include <string>`
-
-`using` `namespace` `std;`
-
-`int` `main() {`
-
-    `string fruits[] = {``"Apple"``,` `"Banana"``,` `"Orange"``,` `"Grapes"``};`
-
-    `for` `(``int` `i = 0; i < 4; i++) {`
-
-        `cout <<` `"Fruit at index "` `<< i <<` `": "` `<< fruits[i] << endl;`
-
-    `}`
-
-    `return` `0;`
-
-`}`
-
-**Output**
-
+//**Output**
+//Fruit at index 0: Apple
+//Fruit at index 1: Banana
+//Fruit at index 2: Orange
+//Fruit at index 3: Grapes
 ```
-Fruit at index 0: Apple
-Fruit at index 1: Banana
-Fruit at index 2: Orange
-Fruit at index 3: Grapes
-```
-
 ## Multi-Dimensional Arrays in C++
 
 Multi-dimensional arrays are known as arrays of arrays that store similar types of data in tabular form.
-
 #### Syntax
 
 ```
@@ -349,74 +284,55 @@ data_type array_name[size1][size2]....[sizeN];
 **size1, size2,…, sizeN**: Size of each dimension.
 
 **2-dimensional arrays** are the most commonly used multi-dimensional arrays in C++.
-
 #### Example
 
 -   C++
 
-## C++
+```C++
+#include <iostream>
+using namespace std;
 
-`#include <iostream>`
+int main()
+{
 
-`using` `namespace` `std;`
+    int arr[3][4] = { { 1, 2, 3, 4 },
+                      { 5, 6, 7, 8 },
+                      { 9, 10, 11, 12 } };
 
-`int` `main()`
+    cout <<"Element at arr[0][0]: " << arr[0][0] << endl;
+    cout << "Element at arr[1][2]: "<< arr[1][2] << endl;
+    arr[2][3] = 20;
+    cout <<"Modified element at arr[2][3]: "<< arr[2][3]
+         << endl;
 
-`{`
-
-    `int` `arr[3][4] = { { 1, 2, 3, 4 },`
-
-                      `{ 5, 6, 7, 8 },`
-
-                      `{ 9, 10, 11, 12 } };`
-
-    `cout <<` `"Element at arr[0][0]: "` `<< arr[0][0] << endl;`
-
-    `cout <<` `"Element at arr[1][2]: "` `<< arr[1][2] << endl;`
-
-    `arr[2][3] = 20;`
-
-    `cout <<` `"Modified element at arr[2][3]: "` `<< arr[2][3]`
-
-         `<< endl;`
-
-    `for` `(``int` `i = 0; i < 3; i++) {`
-
-        `for` `(``int` `j = 0; j < 4; j++) {`
-
-            `cout << arr[i][j] <<` `" "``;`
-
-        `}`
-
-        `cout << endl;`
-
-    `}`
-
-    `return` `0;`
-
-`}`
+    for (int i = 0; i < 3; i++) {`
+        for (int j = 0; j < 4; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
 
 **Output**
 
-```
-Element at arr[0][0]: 1
-Element at arr[1][2]: 7
-Modified element at arr[2][3]: 20
-1 2 3 4 
-5 6 7 8 
-9 10 11 20 
-```
 
+//Element at arr[0][0]: 1
+//Element at arr[1][2]: 7
+//Modified element at arr[2][3]: 20
+//1 2 3 4 
+//5 6 7 8 
+//9 10 11 20 
+```
 ## Vectors in C++
 
 Vectors are a dynamic array-like data structure that stores elements of the same data type in a contiguous fashion that can resize itself automatically unlike arrays which mean vectors can grow when an element is inserted or shrink when an element is deleted.
 
 -   Vectors are present in C++ Standard Template Library (STL).
--   We have to #include <vector> header file in our C++ program to use vectors.
+-   We have to `#include <vector>` header file in our C++ program to use vectors.
 
 ### Syntax to declare a Vector
-
-```
+```c++
 vector<data_type> vectorName;
 ```
 
@@ -430,72 +346,64 @@ vector<data_type> vectorName;
 > -   **front()** – It is used to access the first element of the vector.
 > -   **back()** – It is used to access the last element of the vector.
 > -   **erase()** – It is used to remove an element at a specified position.
-
 ### Example
-
 -   C++
+```c++
+#include <iostream> 
+#include <vector> 
+using namespace std; 
+int main() 
+{ 
+	// Create an empty vector 
+	vector<int> numbers; 
 
-## C++
+	// push_back() 
+	numbers.push_back(10); 
+	numbers.push_back(20); 
+	numbers.push_back(30); 
 
-`#include <iostream>`
+	// Accessing elements using at() 
+	// Output: 10 
+	cout << "Element at index 0: " << numbers.at(0) << endl; 
+	// Output: 20 
+	cout << "Element at index 1: " << numbers.at(1) << endl; 
 
-`#include <vector>`
+	// front() and back() 
+	// Output: 10 
+	cout << "First element: " << numbers.front() << endl; 
+	// Output: 30 
+	cout << "Last element: " << numbers.back() << endl; 
 
-`using` `namespace` `std;`
+	// pop_back() 
+	// Remove the last element 
+	numbers.pop_back(); 
 
-`int` `main()`
+	// erase() 
+	// Remove the element at index 1 
+	numbers.erase(numbers.begin() + 1); 
 
-`{`
+	// empty() 
+	if (numbers.empty()) { 
+		cout << "Vector is empty" << endl; 
+	} 
+	else { 
+		cout << "Vector is not empty" << endl; 
+	} 
 
-    `vector<``int``> numbers;`
+	// clear() 
+	// Remove all elements 
+	numbers.clear(); 
 
-    `numbers.push_back(10);`
+	if (numbers.empty()) { 
+		cout << "Vector is empty" << endl; 
+	} 
+	else { 
+		cout << "Vector is not empty" << endl; 
+	} 
 
-    `numbers.push_back(20);`
-
-    `numbers.push_back(30);`
-
-    `cout <<` `"Element at index 0: "` `<< numbers.at(0) << endl;`
-
-    `cout <<` `"Element at index 1: "` `<< numbers.at(1) << endl;`
-
-    `cout <<` `"First element: "` `<< numbers.front() << endl;`
-
-    `cout <<` `"Last element: "` `<< numbers.back() << endl;`
-
-    `numbers.pop_back();`
-
-    `numbers.erase(numbers.begin() + 1);`
-
-    `if` `(numbers.empty()) {`
-
-        `cout <<` `"Vector is empty"` `<< endl;`
-
-    `}`
-
-    `else` `{`
-
-        `cout <<` `"Vector is not empty"` `<< endl;`
-
-    `}`
-
-    `numbers.clear();`
-
-    `if` `(numbers.empty()) {`
-
-        `cout <<` `"Vector is empty"` `<< endl;`
-
-    `}`
-
-    `else` `{`
-
-        `cout <<` `"Vector is not empty"` `<< endl;`
-
-    `}`
-
-    `return` `0;`
-
-`}`
+	return 0; 
+}
+```
 
 **Output**
 
@@ -513,42 +421,33 @@ Vector is empty
 ### References
 
 References provide an alias for an existing variable. We can manipulate the original value using the reference variable. The reference variable is declared using **&** operator.
-
 #### Example
-
-```
+```c++
 int originalVariable = 12;
 // A reference variable to originalVariable
 int& referenceVariable = originalVariable;
 ```
-
 **referenceVariable** is reference to **originalVariable**.
-
 ### Pointers
-
 A pointer is a variable that stores the memory address of another variable. It can be created using the **\*** operator and the address of another variable can be assigned using the address-of operator **&**.
-
 #### Example
-
-```
+```c++
 int i = 3; 
 // A pointer to variable i or "stores the address of i"
 int *ptr = &i;
 ```
-
+See also: [[Pointers and References differences]]
 ## Functions
-
 Functions are the reusable block of a set of statements that performs a specific task. Functions can be used to organize the logic of the program.
-
 #### Syntax for function declaration
 
-```
+```c++
 return_type function_name(parameters);
 ```
 
 #### Syntax for function definition
 
-```
+```c++
 return_type function_name(parameters) {
     // function body
     // code to be executed
@@ -565,31 +464,26 @@ return_type function_name(parameters) {
 Program to add two numbers.
 
 -   C++
+```c++
+#include<bits/stdc++.h> 
+using namespace std; 
 
-## C++
+// Function declaration 
+int sum(int a, int b); 
 
-`#include<bits/stdc++.h>`
+// Function definition 
+int sum(int a, int b) { 
+	return a + b; 
+} 
 
-`using` `namespace` `std;`
+int main() 
+{ 
+	// Function call 
+	int result = sum(3, 4); 
+	cout << result; 
+}
 
-`int` `sum(``int` `a,` `int` `b);`
-
-`int` `sum(``int` `a,` `int` `b) {`
-
-    `return` `a + b;`
-
-`}`
-
-`int` `main()`
-
-`{`
-
-    `int` `result = sum(3, 4);`
-
-      `cout << result;`
-
-`}`
-
+```
 **Explanation**: The function **sum** takes two integers as parameters and returns the sum of the two numbers. The return type of the function is **int**. The parameters of the function are two integers that are 3 and 4. The returned value 7 is stored in the variable result.
 
 ## String Functions in C++
@@ -597,125 +491,87 @@ Program to add two numbers.
 There are several string functions present in Standard Template Library in C++ that are used to perform operations on strings. Some of the commonly used string functions are:
 
 ### 1\. length() Function
-
 Returns the length of a string.
-
 #### Example
 
-```
+```c++
 string str = "GeeksforGeeks";
 cout << "The length of the string is: " << str.length();
 ```
-
 ### 2\. substr() Function
-
 It is used to extract a substring from a given string.
-
 #### Syntax
 
-```
+```c++
 string substr (size_t pos, size_t len) const;
 ```
 
 **pos**: Position of the first character to be copied.  
 **len**: Length of the sub-string.  
 **size\_t**: It is an unsigned integral type.
-
 #### Example
+```c++
+#include <iostream> 
+#include <string> 
+using namespace std; 
+int main() 
+{ 
+	string str = "GeeksforGeeks"; 
 
--   C++
+	// Extracts a substring starting from 
+	// index 7 with a length of 5 
+	string sub = str.substr(1, 5); 
 
-## C++
+	cout << "Substring: " << sub << endl; 
 
-`#include <iostream>`
+	return 0; 
+}
 
-`#include <string>`
-
-`using` `namespace` `std;`
-
-`int` `main()`
-
-`{`
-
-    `string str =` `"GeeksforGeeks"``;`
-
-    `string sub = str.substr(1, 5);`
-
-    `cout <<` `"Substring: "` `<< sub << endl;`
-
-    `return` `0;`
-
-`}`
-
+```
 ### 3\. append() Function
-
 Appends a string at the end of the given string.
-
 #### Example
+```c++
+#include <iostream> 
+#include <string> 
+using namespace std; 
+int main() { 
+	string str = "Geeksfor"; 
 
--   C++
+	str.append("Geeks"); 
 
-## C++
+	cout << "Appended string: " << str << endl; 
 
-`#include <iostream>`
+	return 0; 
+} 
 
-`#include <string>`
-
-`using` `namespace` `std;`
-
-`int` `main() {`
-
-    `string str =` `"Geeksfor"``;`
-
-    `str.append(``"Geeks"``);`
-
-    `cout <<` `"Appended string: "` `<< str << endl;`
-
-    `return` `0;`
-
-`}`
-
+```
 **Output**
-
 ```
 Appended string: GeeksforGeeks
 ```
-
 ### 4\. compare() Function
-
 It is used to compare two strings lexicographically.
-
 #### Example
+```c++
+#include <iostream> 
+#include <string> 
+using namespace std; 
+int main() { 
+	string str1 = "Geeks"; 
+	string str2 = "for"; 
+	string str3 = "Geeks"; 
+	
+	int result1 = str1.compare(str2); 
+	cout << "Comparison result: " << result1 << endl; 
 
--   C++
+	int result2 = str1.compare(str3); 
+	cout << "Comparison result: " << result2 << endl; 
+	
+	return 0; 
+}
 
-## C++
-
-`#include <iostream>`
-
-`#include <string>`
-
-`using` `namespace` `std;`
-
-`int` `main() {`
-
-    `string str1 =` `"Geeks"``;`
-
-    `string str2 =` `"for"``;`
-
-    `string str3 =` `"Geeks"``;`
-
-    `int` `result1 = str1.compare(str2);`
-
-    `cout <<` `"Comparison result: "` `<< result1 << endl;`
-
-    `int` `result2 = str1.compare(str3);`
-
-    `cout <<` `"Comparison result: "` `<< result2 << endl;`
-
-    `return` `0;`
-
-`}`
+```
 
 **Output**
 
@@ -729,49 +585,31 @@ Comparison result: 0
 It is used to check if a string is empty.
 
 #### Example
+```c++
+#include <iostream> 
+#include <string> 
+using namespace std; 
+int main() { 
+	string str1 = "GeeksforGeeks"; 
+	string str2 = ""; 
 
--   C++
+	if (str1.empty()) { 
+		cout << "str1 is empty" << endl; 
+	} else { 
+		cout << "str1 is not empty" << endl; 
+	} 
 
-## C++
+	if (str2.empty()) { 
+		cout << "str2 is empty" << endl; 
+	} else { 
+		cout << "str2 is not empty" << endl; 
+	} 
 
-`#include <iostream>`
+	return 0; 
+}
 
-`#include <string>`
-
-`using` `namespace` `std;`
-
-`int` `main() {`
-
-    `string str1 =` `"GeeksforGeeks"``;`
-
-    `string str2 =` `""``;`
-
-    `if` `(str1.empty()) {`
-
-        `cout <<` `"str1 is empty"` `<< endl;`
-
-    `}` `else` `{`
-
-        `cout <<` `"str1 is not empty"` `<< endl;`
-
-    `}`
-
-    `if` `(str2.empty()) {`
-
-        `cout <<` `"str2 is empty"` `<< endl;`
-
-    `}` `else` `{`
-
-        `cout <<` `"str2 is not empty"` `<< endl;`
-
-    `}`
-
-    `return` `0;`
-
-`}`
-
+```
 **Output**
-
 ```
 str1 is not empty
 str2 is empty
@@ -786,14 +624,14 @@ Description
 
 Example
 
- |
-| --- | --- | --- |
+| Function | Description | Example |
+| ---- | ---- | ---- |
 | min(x, y) | Returns the minimum value of x and y. | cout << min(10, 20); |
-| max(x, y) | Returns the minimum value of x and y. | cout << max(10, 20); |
+| max(x, y) | Returns the maximum value of x and y. | cout << max(10, 20); |
 | sqrt(x) | Returns the square root of x. | cout << sqrt(25); |
 | ceil(x) | It rounds up the value x to its nearest integer. | double ceilX = ceil(3.14159); |
 | floor(x) | It rounds the value of x downwards to the nearest integer. | double floorX = floor(3.14159); |
-| **pow(x,n)** | It returns the value x raised to the power of y | double result = pow(3.0, 2.0); |
+| pow(x,n) | It returns the value x raised to the power of y | double result = pow(3.0, 2.0); |
 
 ## Object-Oriented Programming in C++
 
@@ -806,34 +644,23 @@ Object-oriented programming generally means storing data in the form of classes 
 **Objects:** An object is an instance or a variable of the class.
 
 ## Pillars of OOPS
-
 ### 1\. Encapsulation
-
 Encapsulation is wrapping up the data and methods together within a single entity. In C++, classes are used for encapsulation.
-
 ### 2\. Abstraction
 
 Showing only the necessary details and hiding the internal details is known as abstraction.
-
 ### 3\. Polymorphism
-
 Providing different functionalities to the functions or operators of the same name is known as Polymorphism.
 
 > ### Types of Polymorphism
-> 
 > -   Compile-time Polymorphism
 > -   Runtime Polymorphism
-> 
 > **Compile-time Polymorphism can be achieved using:**
-> 
 > -   Operator overloading
 > -   Function overloading
-> 
 > **Runtime Polymorphism can be achieved using:**
-> 
 > -   Function overriding
 > -   Virtual Functions
-
 ### 4\. Inheritance
 
 Deriving the properties of a class ( Parent class ) to another class ( Child class ) is known as Inheritance. It is used for code reusabilty.
@@ -849,91 +676,65 @@ Types of Inheritance:
 ## File Handling in C++
 
 File handling means reading data from a file and manipulating the data of a file.
-
 ### File Handling Operations in C++
-
-> #### 1\. Open a file
-> 
-> We can use **open()** member function of **ofstream** class to open a file.
-> 
-> #### 2\. Read a file
-> 
-> We can use **getline()** member function of **ifstream** class to read a file.
-> 
-> #### 3\. Write to a file
-> 
-> We can use **<<** operator to write to a file after opening a file with the object of **ofstream** class.
+#### 1\. Open a file
+We can use **open()** member function of **ofstream** class to open a file.
+#### 2\. Read a file
+We can use **getline()** member function of **ifstream** class to read a file.
+#### 3\. Write to a file
+We can use **<<** operator to write to a file after opening a file with the object of **ofstream** class.
 
 ### Example
+```c++
+#include <fstream> 
+#include <iostream> 
+#include <string> 
 
--   C++
+using namespace std; 
 
-## C++
+int main() 
+{ 
+	ofstream outputFile("example.txt"); 
 
-`#include <fstream>`
+	// Open the file for writing 
+	outputFile.open("example.txt"); 
+	if (outputFile.is_open()) { 
 
-`#include <iostream>`
+		// Write data to the file 
+		outputFile << "Hello, World!" << endl; 
+		outputFile << 42 << endl; 
+		outputFile.close(); // Close the file 
+	} 
+	else { 
 
-`#include <string>`
+		// Failed to open the file 
+		cout << "Error opening the file for writing."
+			<< endl; 
+		return 1; 
+	} 
 
-`using` `namespace` `std;`
+	// Reading from a file 
+	ifstream inputFile("example.txt"); 
+	if (inputFile.is_open()) { 
+		string line; 
+		while (getline(inputFile, line)) { 
+			// Print each line 
+			cout << line << endl; 
+		} 
+		// Close the file 
+		inputFile.close(); 
+	} 
+	else { 
 
-`int` `main()`
+		// Failed to open the file 
+		cout << "Error opening the file for reading."
+			<< endl; 
+		return 1; 
+	} 
 
-`{`
+	return 0; 
+}
 
-    `ofstream outputFile(``"example.txt"``);`
-
-    `outputFile.open(``"example.txt"``);`
-
-    `if` `(outputFile.is_open()) {`
-
-        `outputFile <<` `"Hello, World!"` `<< endl;`
-
-        `outputFile << 42 << endl;`
-
-        `outputFile.close();`
-
-    `}`
-
-    `else` `{`
-
-        `cout <<` `"Error opening the file for writing."`
-
-             `<< endl;`
-
-        `return` `1;`
-
-    `}`
-
-    `ifstream inputFile(``"example.txt"``);`
-
-    `if` `(inputFile.is_open()) {`
-
-        `string line;`
-
-        `while` `(getline(inputFile, line)) {`
-
-            `cout << line << endl;`
-
-        `}`
-
-        `inputFile.close();`
-
-    `}`
-
-    `else` `{`
-
-        `cout <<` `"Error opening the file for reading."`
-
-             `<< endl;`
-
-        `return` `1;`
-
-    `}`
-
-    `return` `0;`
-
-`}`
+```
 
 This C++ cheat sheet can serve as a reference guide for programmers that provides quick access to concepts of C++.

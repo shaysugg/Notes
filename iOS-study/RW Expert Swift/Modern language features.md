@@ -1,7 +1,7 @@
 ## Literals
 > Literals are a great abstraction to let consumers initialize your types using typed literals, such as String, Bool, Array and many others.
 
-some example can be: `ExpressibleByStringLiteral`, `ExpressibleByArrayLiteral`, `ExpressibleByDictionaryLiteral`
+Some examples can be: `ExpressibleByStringLiteral`, `ExpressibleByArrayLiteral`, `ExpressibleByDictionaryLiteral`
 ### Examples
 #### ExpressibleByStringLiteral
 checkout the example in [[Strings]]

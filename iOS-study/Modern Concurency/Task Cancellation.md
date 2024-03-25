@@ -17,3 +17,11 @@ await withTaskCancellationHandler {
 	//update stuff
 }
 ```
+
+## Tasks Canceling Methods
+ 
+* **Task.isCancelled**: Returns true if the task is still alive but has been canceled since the last suspension point.
+* **Task.currentPriority**: Returns the current task’s priority.
+* **Task.cancel()**: Attempts to cancel the task and its child tasks.
+* **Task.checkCancellation()**: Throws a CancellationError if the task is canceled, making it easier to exit a throwing context.
+* **Task.yield()**: Suspends the execution of the current task, giving the system a chance to cancel it automatically to execute some other task with higher priority.”

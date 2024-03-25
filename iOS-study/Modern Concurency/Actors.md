@@ -41,8 +41,8 @@ It's also can be used on **viewModel** classes like this
 
 ![Actor Serialization](actor_serialization.png)
 
-## `nonsolated` Methods
-if in our actors we have functions that **don't modify the state of actor** we can use them like `nonisolated func foo() {}`. this would act the function as a **default class function**  and some boost in our performance of the app.
+## `nonisolated` Methods
+if in our actors we have functions that ==don't modify the state of actor== we can use them like `nonisolated func foo() {}`. this would act the function as a **default class function**  and some boost in our performance of the app.
 ## Global Actors
 Same as `@MainActor` global actors getting used where we need a **single, shared actor that’s accessible from anywhere.**
 for example: 

@@ -8,7 +8,7 @@ decoder.dataDecodingStrategy = .base64
 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 ```
 adding a new custom decoding strategy
-*see the original source for the complete implemantation*
+*see the original source for the complete implementation*
 ``` Swift
 extension JSONDecoder.KeyDecodingStrategy {
   static var convertFromKebabCase: JSONDecoder.KeyDecodingStrategy = 
@@ -18,8 +18,8 @@ extension JSONDecoder.KeyDecodingStrategy {
 }
 ```
 ## Custom Coding Initializers
-first we need to write the init and then choose our coding container.
-different containers explained as below
+First we need to write the init and then choose our coding container.
+Different containers explained as below
 ![](attachments/coding-container.png)
 * Single value container:
 ``` Swift
@@ -38,4 +38,8 @@ enum CodingKeys: String, CodingKey {
 	case id
 	//....
 }
+```
+## `JsonEecoder` Output Customization
+```Swift
+encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
 ```

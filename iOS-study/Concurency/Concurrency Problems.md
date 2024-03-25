@@ -8,10 +8,10 @@ accessing count in not safe from different threads
 ```Swift
 class Counter {
 	public var count = 0 //🔴 possibility of data races
-	func increament() {
+	func increment() {
 		count += 1
 	}
-	func decreament() {
+	func decrement() {
 			count -= 1
 	}
 }

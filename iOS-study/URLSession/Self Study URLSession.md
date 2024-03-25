@@ -33,3 +33,4 @@ when you cancel a `URLsessionTask` it will provide a resume data which you can s
 3) in that class implement `urlSessionDidFinishEvents(forBackgroundURLSession:)` to execute the completion that you stored
 ### Background downloads Important notes
 * When you attached xcode debugger even if it go to background lifecycle still Use OSLog to read your logs while a background upload is running
+* [Other notes](https://www.avanderlee.com/swift/urlsession-common-pitfalls-with-background-download-upload-tasks/)

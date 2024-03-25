@@ -60,9 +60,14 @@ condition ? try valueTrue() : try valueFalse()
 `rethrow` helps to throw the passed function parameters errors. if they don't throw it's fine to write the higher level function without `try`. ([more about rethrow](https://www.avanderlee.com/swift/rethrows/))
 
 ## The Fundamental Types
-* named types (protocols, enumerations, structures and classes)
-* compound types (functions and tuples)
-
+### Named types
+Includes **protocols, enumerations, structures and classes**
+A _named type_ is a type that can be given a particular name when it’s defined. For example, instances of a user-defined class named `MyClass` have the type `MyClass`
+In addition to user-defined named types, the Swift standard library defines many commonly used named types, including those that represent arrays, dictionaries, and optional values.
+Data types that are normally considered basic or primitive in other languages — such as types that represent numbers, characters, and strings — are actually named types. defined and implemented in the Swift standard library using structures
+### Compound types 
+Includes **functions and tuples**
+A compound type is a type without a name, defined in the Swift language itself.
 ## Struct & Class Differences
 ### Difference 1: Automatic initialization
 the compiler will declare an internal member-wise initializer for structures.
@@ -81,10 +86,16 @@ classPointB.x += 10
 print(classPointA.x) // affected, prints 10.0
 ```
 ### Difference 3: Scope of mutation
+By declaring a struct as a `let` we forbid any forms of mutation on it. For the classes however we can't assign an entire new class to that variable but we can have mutations on its properties.
 ### Difference 4: Heap versus stack
+the Swift compiler starts by allocating **everything** on the **heap** and then reasons about the object’s lifetime to determine whether it can be allocated on the **stack**.
 Stack allocations are orders of magnitude faster than heap allocations, this is where value types get their fast reputation.
+Here is how *majority* of classes and structs are allocated in memory:
 ![Heap VS Stack](attachments/heap-vs-stack.png)
 ### Difference 5: Lifetime and identity
-Value types, such as structures and enumerations, generally live on the stack and are cheap to copy. Values don’t have the notion of a lifetime or intrinsic identity. References do have lifetimes, and because of that, you can define a deinit function for them. They also automatically have an identity because they reside at a specific place in memory you can use to identify them.
+Value types, such as structures and enumerations, generally live on the stack and are cheap to copy. **Values don’t have the notion of a lifetime or intrinsic identity.** References do have lifetimes, and because of that, you can define a `deinit` function for them. They also automatically have an identity because they reside at a specific place in memory you can use to identify them.
 
-Note: It’s possible to give a value type identity by specifying a unique property attribute. The Identifiable protocol, which adds a Hashable (and Equatable) id property, does this. The SwiftUI framework defines property wrappers, such as @State, which among other things imbue lifetime into simple value types
+Note: It’s possible to give a value type identity by specifying a unique property attribute. The Identifiable protocol, which adds a `Hashable` (and Equatable) id property, does this. The SwiftUI framework defines property wrappers, such as @State, which among other things imbue lifetime into simple value types
+## Other notes
+- Instance methods secretly pass in self.
+* The mutating instance methods of value types pass inout self.

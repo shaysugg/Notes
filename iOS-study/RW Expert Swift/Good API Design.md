@@ -9,7 +9,7 @@ These 5 sections are general rules that you want to consider when designing and 
 ## What is the core of your API? (Access Levels)
 ![[access-levels.png]]
 You may want to use final for forbidding inheritance capabilities on a class.
-* you can go to the `related items` icon (picture below) and select `Generated Interfaces` to have an overal view of how your class api looks
+* you can go to the `related items` icon (picture below) and select `Generated Interfaces` to have an overall view of how your class api looks
 ![[related-items.png]]
 ## Modern language features
 [[Modern language features]]
@@ -40,7 +40,7 @@ Addition to parameters, returns, throwing these are the other metadata that Xcod
 2.3.11
 
 <major> . <minor> . <patch> - <pre-release> + <meta-data>
-2.3.11-beta.2-11132
+2.3.11-beta.2+11132
 ```
 major contains **breaking** changes while minor has compatible changes.
 meta data usually contains build number.

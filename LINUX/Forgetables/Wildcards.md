@@ -14,7 +14,7 @@
 </tr>
 <tr>
 <td>[characters]</td>
-<td>Matches any character that is not a member of the set characters</td>
+<td>Matches any character that is a member of the set characters</td>
 </tr>
 <tr>
 <td>![characters]</td>

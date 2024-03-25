@@ -33,13 +33,14 @@ let semaphore = DispatchSemaphore(value: 3)
 for id in ids {
   semaphore.wait()
   group.enter()
-
-  let task = aLongTask() { data, _, error in
-    defer {
-      group.leave()
-      semaphore.signal()
-    }
+  queue.async(group: group) {
+    let task = aLongTask() { data, _, error in
+    . defer {
+        group.leave()
+        semaphore.signal()
+      }
 	//...
+    }
   }
 }
 

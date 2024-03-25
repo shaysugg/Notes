@@ -21,3 +21,5 @@ async let zee = try await getZee()
 
 ## Flavors of Tasks
 ![Flavors of Tasks](attachments/flavors-of-tasks.png)
+By using Concurrency Instruments we can have a view of our hierarchy of tasks
+![[instruments-hierarchy.png]]

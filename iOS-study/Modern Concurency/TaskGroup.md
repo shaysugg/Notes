@@ -81,17 +81,37 @@ So which part of a `TaskGroup` is safe for mutating a shared state?
  Best practice for mutating shared state In the dangerouse areas is define mutating components as an **Actor**
 
 ## Task group patterns
-Sometimes we don't want to add so many tasks in our group since it may hurt the performance.
-We can use a pattern like this:
+### Limit the number of concurrent task
+Sometimes we don't want to add so many tasks in our group since it may hurt the performance. 
+One general approach is to initially add a certain amount of task to the group and on the completion of each task if a remained tasks exists add it to the group. We can use a pattern like this:
 ```Swift
 withTaskGroup(of: Something.self) { group in
     for _ in 0..<maxConcurrentTasks {
         group.addTask { }
     }
+
     while let <partial result> = await group.next() {
         if !shouldStop { 
             group.addTask { }
         }
     }
 }
+```
+*check SampleCode s for a real implementation*
+### Limit the total time 
+When using Discarding Task Groups if any off the group tasks throws an error all of the other group tasks will be canceled.
+By using that It's possible to implement a maximum time for all of the group concurrent tasks.
+```Swift
+func run() async throws i
+	try await withThrowingDiscardingTaskGroup { group in
+		for cook in staff. keys {
+			group.addTask { try await cook.handleShift() }
+		}
+		group.addTask {
+			// keep the restaurant going until closing time
+			try await Task.sleep(for: shiftDuration)
+			throw TimeCloseError()
+		}
+	}
+}		
 ```
