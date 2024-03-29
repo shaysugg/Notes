@@ -1,4 +1,4 @@
-swiftUI modifier which behaves much like the sink(receiveValue:) and you can directly subscrbe to publishers inside the view
+SwiftUI modifier which behaves much like the sink(receiveValue:) and you can directly subscribe to publishers inside the view
 ```Swift
 struct ContentView: View {
 	private let timer = Timer.publish(every: 10, on: .main,

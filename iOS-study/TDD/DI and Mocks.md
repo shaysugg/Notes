@@ -1,5 +1,5 @@
 ## Fakes, Mocks, and Stubs
-assuming the original class and protocol are something liked this
+Assuming the original class and protocol are something liked this
 ``` Swift
 protocol DataSourceProtocol {
 	func getNumberOfItems() -> Int
@@ -18,7 +18,7 @@ class StubDataSource: DataSourceProtocol {
 }
 ```
 ### Fakes
-Fakes often have logic, but instead of providing real or production data, they provide test data. For example, a fake network manager might read/write from local JSON files instead of connecting over a network.
+Fakes often have **logic**, but instead of providing real or production data, they provide test data. For example, a fake network manager might read/write from local JSON files instead of connecting over a network.
 ```Swift 
 class FakeDataSource: DataSourceProtocol {
 	func getNumberOfItems() -> Int { 

@@ -1,4 +1,4 @@
-use for testing a asynchronous code.
+For testing an asynchronous code.
 ```Swift 
 let expected = expectation(description: "callback happened")
   sut.stateChangedCallback = { model in
@@ -13,7 +13,6 @@ let expected = expectation(description: "callback happened")
   wait(for: [expected], timeout: 1)
   XCTAssertEqual(observedState, .paused)
 ```
-
 ## Waiting for a specific notification
 ``` Swift
 expectation(
@@ -21,18 +20,15 @@ expectation(
     object: sut,
     handler: nil)
 ```
-
 ## Wait to call multiple times
 Setting `expectedFulfillmentCount` to two means the expectation won’t be met until fulfill() has been called twice before the timeout.
 ```Swift 
 exp.expectedFulfillmentCount = 2
 ```
-
 ## Expecting something not to happen
 ``` Swift
 exp.isInverted = true
 ```
-
 ## Waiting for a condition
 define a NSPredicate and make a expectation with it
 ``` Swift

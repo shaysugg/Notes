@@ -1,7 +1,5 @@
-### Collect
-
+## Collect
 we can collect by two factors, **time** and **count** heres a example of collecting with count.
-
 ```swift
 ["A", "B", "C", "D", "E"].publisher
  		.collect(2)
@@ -11,35 +9,24 @@ we can collect by two factors, **time** and **count** heres a example of collect
 
 //OUTPUT: ["A", "B"] ["C", "D"] ["E"]
 ```
-
-### FlatMap
-
+## FlatMap
 *Uses when a publisher has a value that publish something* 
 flattens the output from all received publishers into a single publisher.
-
-### Debounce and Throttle
-
+## Debounce and Throttle
 * debounce waits for a pause in values it receives, then emits the latest one after the specified interval.
 * throttle waits for the specified interval, then emits either the first or the latest of the values it received during that interval. It doesn’t care about pauses.
-
 ### Output 
-
 `output(at: 1)` would only emit the second item that publisher sent.
 `output(in 1...3)` emits values whose indices are within a provided range.
-
 ### Scan and Reduce
-
 **reduce** waits for publisher to finish and then do the transformation with all the values, and emits **one** final result.
 scan emits **each** value with the transformation that did provided for it
 
 1..3 -> red   {first + last} -> 6 
 1..3 -> scan {first + last} -> 1 , 3 , 6
-
 ### ReplaceEmpty
 When you have a publisher that emits zero values and finishes you can use `replaceEmpty` to publish one value.
-
 ### Share
-
 if you want to **subscribe multiple** to **one publisher** you should use `share` on that publisher then subscribe to it. **otherwise each subscribe runs the publisher again and different values for each subscriber can get generated.** [more](https://developer.apple.com/documentation/combine/publishers/merge/share())
 
 ```swift

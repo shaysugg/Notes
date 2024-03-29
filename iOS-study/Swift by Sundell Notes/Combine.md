@@ -1,10 +1,8 @@
-
 ## Custom Combine Operators
 for defining a custom operator we need to extend `Publisher` and also put any related condition that we need to to its `Output` and `Failure`.
 ```Swift
 extension Publishers where Output == Data, Failure == CustomError {}
 ```
-
 ### Data Validation
 ```Swift
 extension Publisher {
@@ -169,5 +167,18 @@ extension Publisher where Failure == Never {
             object?[keyPath: keyPath] = value
         }
     }
+}
+```
+## Optional error instead of switch
+```Swift
+extension Subscribers.Completion {
+    var error: Failure? {
+        switch self {
+        case .finished:
+            return nil
+        case .failure(let failure):
+            return failure
+        }
+    }
 }
 ```
