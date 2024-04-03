@@ -3,6 +3,8 @@ It's a best practice to put any related work to NSManagedObjectContext into one 
 * `perform(_:)`
 * `performAndWait(_:)`
 
+*note that in the modern concurrency it's possible to wait for the perform completion by using `try await` *
+
 these methods ensure that whatever action we pass to them is executed ==on the same queue that created the context.==
 the first is an asynchronous method, whereas the second is synchronous
 ## Heavy coreData Operations

@@ -1,5 +1,4 @@
 [Article](https://fatbobman.com/en/posts/mastering-relationships-in-core-data-fundamentals/)
-TODO: rewrite the quotes in a more simpler way
 
 > Core Data’s key task is how it precisely describes and effectively manages the complex relationships between different data instances. Indeed, the ability to manage relationships not only constitutes the core characteristic of Core Data but also represents a significant advantage over other data persistence frameworks.
 

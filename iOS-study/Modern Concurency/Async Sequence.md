@@ -133,3 +133,23 @@ for await _ in await NotificationCenter.default
 	//do stuff in here 
 }
 ```
+## Continuation outside of closure
+Sometimes we want to extract the continuation out of asyncstream builder in order to send values to it from other places. The safe way of implementing it is by using:
+```swift
+```swift
+class Foo {
+  let stream: AsyncStream<String>
+  private let continuation: AsyncStream<String>.Continuation
+
+	override init() {
+	let (stream, continuation) = AsyncStream.makeStream(of: String.self)
+	self.stream = stream
+	self.continuation = continuation
+	}
+
+	func foo() {
+		continuation.yield("Hello")
+	}
+}
+```
+##

@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"e21f07eed6613403","type":"text","text":"PersistantContainer","x":-460,"y":-120,"width":250,"height":60},
+		{"id":"1756b0dde33091e4","type":"text","text":"NSManagedContext\n*only usable when loadPersistantStores is called*","x":-69,"y":-340,"width":269,"height":120},
+		{"id":"4d2114928ce49dd5","x":277,"y":-215,"width":203,"height":75,"type":"text","text":"Or any other CRUD operations"},
+		{"id":"e4549c5215690f1d","x":277,"y":-420,"width":119,"height":60,"type":"text","text":"Save"},
+		{"id":"e161102bca6df428","x":277,"y":-310,"width":119,"height":60,"type":"text","text":"Fetch"},
+		{"id":"98f3e554ce8c1ea2","type":"text","text":"LoadPersistantStore()","x":-69,"y":-20,"width":250,"height":60},
+		{"id":"dbc0f82c1c6d20e4","x":-460,"y":79,"width":250,"height":101,"type":"text","text":"NSmanagedObjectModel\n*should be connected from bundle*"}
+	],
+	"edges":[
+		{"id":"05724c0ababa1a1b","fromNode":"e21f07eed6613403","fromSide":"right","toNode":"1756b0dde33091e4","toSide":"left","label":"property"},
+		{"id":"7d3840a787d95799","fromNode":"e21f07eed6613403","fromSide":"right","toNode":"98f3e554ce8c1ea2","toSide":"left","label":"method"},
+		{"id":"0166cf2f4bed5a49","fromNode":"1756b0dde33091e4","fromSide":"right","toNode":"e4549c5215690f1d","toSide":"left"},
+		{"id":"3ebd077c2292ecff","fromNode":"1756b0dde33091e4","fromSide":"right","toNode":"e161102bca6df428","toSide":"left"},
+		{"id":"d823e8f8506eae72","fromNode":"1756b0dde33091e4","fromSide":"right","toNode":"4d2114928ce49dd5","toSide":"left"},
+		{"id":"5d3b30c468f070c2","fromNode":"e21f07eed6613403","fromSide":"bottom","toNode":"dbc0f82c1c6d20e4","toSide":"top","label":"init"}
+	]
+}
