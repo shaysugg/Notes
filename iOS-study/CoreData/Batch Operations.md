@@ -13,3 +13,6 @@ This is a slightly complicated process. It's recommended to consider the impleme
 * It's required to purge history tracking transactions, because they're take up space on disk. While It's possible to remove before a certain past date. *for example seven days ago* in the best practice project there is a timestamp tracking mechanism to remove history exactly after its changes have been merged to the context.
 
 #article_potential
+## Further readings
+`NSPersistantRemoteChanges`? What are the differences between two
+https://www.finnvoorhees.com/words/subscribing-to-swiftdata-changes-outside-swiftui

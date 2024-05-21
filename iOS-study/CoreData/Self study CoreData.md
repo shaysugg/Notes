@@ -72,7 +72,7 @@ see: [[Batch Operations]]
 * You can use multiple context.
 * You can use batch requests.
 ## Having objects with unique property
-Assume we want to have notes with unique name.
+Assume we want to have notes with unique names.
 One approach is to check other note names before inserting a new one. which is quite insufficient.
 The other approach is define the property as constraints for the data model. 
 This way if we try to save the view context changes we get an error.

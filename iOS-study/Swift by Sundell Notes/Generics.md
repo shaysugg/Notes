@@ -1,4 +1,4 @@
-## Function conditional conformence
+## Function conditional conformance
 Keep in mind that It's possible to write the conditional generic conformance on the function levels instead of the entire extension.
 ```Swift
 extension Sequence /*where Element == Renderable*/ {

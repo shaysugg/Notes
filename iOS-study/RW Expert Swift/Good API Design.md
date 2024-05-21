@@ -25,7 +25,9 @@ Example:
 /// - **Parameters**:
 ///   - a: first parameter
 ///   - b: second parameter
+///
 /// - **note**: Use this function to add two values
+///
 /// - **Throws**: if the numbers are negative
 
 func sum(a: Int, b: Int) throws -> Int {  }

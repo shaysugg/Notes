@@ -1,4 +1,6 @@
-# Advance Logs
+## Common way of loging
+`git log --decorate --oneline --graph`
+## Log Sub Commands
 <table>
 	<tr>
 		<td><b>Subcommand</b></td>
@@ -75,3 +77,11 @@
 	</tr>
 	
 	</table>
+## `git shortlog`
+Group all the logs within their authors
+* `-s` only shows author names an the number of their commits
+## Filter logs
+Dates can be passed in raw formats
+`git log --after 2016-02-05`
+They also can have abstract formats
+`git log --after '3 days ago'`

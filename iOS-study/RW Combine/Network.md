@@ -1,5 +1,5 @@
 ## Publishing network data to multiple subscribers
-You could use the `share()` operator, but that‘s tricky **because you need to subscribe all your subscribers before the result comes back**.
+You could use the `share()` operator, but that‘s tricky ==**because you need to subscribe all your subscribers before the result comes back**.==
 By using `multicast()` operator, which creates a ConnectablePublisher that publishes values through a Subject, you can subscribe multiple times to the subject, then call the publisher‘s `connect()` method when you‘re ready.
 ``` Swift
 let url = URL(string: "https://www.raywenderlich.com")!
