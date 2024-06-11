@@ -1,7 +1,6 @@
 # Linked List
 
 linked list is a collection of nodes. Each node holds a value and has a reference to the next node.
-
 -   Linked lists are linear and unidirectional. As soon as you move a reference from one node to another, you can’t go back.
 -   Linked lists have a O(1) time complexity for head first insertions. Arrays have O(n) time complexity for head-first insertions.
 -   Conforming to Swift collection protocols such as Sequence and Collection offers a host of helpful methods for a fairly small amount of requirements.

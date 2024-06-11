@@ -79,6 +79,8 @@ So which part of a `TaskGroup` is safe for mutating a shared state?
 * It’s **dangerous** to modify state from the **concurrent** parts (in red), unless you use a safety mechanism.
 
  Best practice for mutating shared state In the dangerouse areas is define mutating components as an **Actor**
+## Check cancellation
+`group.addTaskUnlessCancelled` can be a good alternative to `group.add` when we want to check for cancelation before starting a new task
 
 ## Task group patterns
 ### Limit the number of concurrent task

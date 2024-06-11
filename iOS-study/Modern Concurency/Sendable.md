@@ -10,3 +10,8 @@ in the swift concurrency topics it means: **safe to use in concurrent code**
 * In the sendable closures the values we capture should be without possibility of mutation. like value types, actors, classes that implement their own synchronizations.
 
 🔥 The best practice in your own code is to require that any **closures** you run **asynchronously** be `@Sendable`, and that any **values** you use in **asynchronous** code adhere to the `Sendable` protocol.
+
+
+
+* In other words, this closure will run in a concurrent manner so we want to make sure that we’re not accidentally introducing a data race.
+https://www.donnywals.com/what-are-sendable-and-sendable-closures-in-swift/

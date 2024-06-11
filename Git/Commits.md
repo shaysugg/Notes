@@ -1,0 +1,2 @@
+* `git commit --am "Commit message"` going to add all the stages and commit them 
+* `git commit -m "This is a blank commit" --allow-empty"` going to create an empty commit. It's discouraged to create empty commit but sometimes it can be useful for example for CI systems that their actions are triggered by commits.

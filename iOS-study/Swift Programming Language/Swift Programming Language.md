@@ -5,7 +5,7 @@ In situations where either type would be appropriate, `Double` is preferred.
 
 Use the `Int` type for all general-purpose integer constants and variables in your code, even if they’re known to be nonnegative
 ## Error Handling
-Handle different types of errors
+* Handle different types of errors that are enumerations cases
 ```swift
 do {
     try makeASandwich()
@@ -14,9 +14,41 @@ do {
     washDishes()
 } catch SandwichError.missingIngredients(let ingredients) {
     buyGroceries(ingredients)
+} 
+```
+* You can also use where on catch blocks for additional condition checking
+```swift
+//...
+catch ComparisonError.bigger(let number) where number != 0 {
+	//...
 }
 ```
-
+* Error handling based on types
+```swift
+catch let unexpected as UnexpectedError {
+	// UnexpectedError is struct
+	log(unexpected.reason)
+} catch is UnexpectedError {
+	
+}
+```
+More on conditional error catching: [Article](https://sarunw.com/posts/different-ways-to-catch-throwing-errors-in-swift/)
+### Clean up on errors
+We can use defer to do necessary clean ups after throwing errors
+``` swift
+func processFile(filename: String) throws {
+    if exists(filename) {
+        let file = open(filename)
+        defer {
+            close(file)
+        }
+        while let line = try file.readline() {
+            // Work with the file.
+        }
+        // close(file) is called here, at the end of the scope.
+    }
+}
+```
 ## Operations
 ### Comparing tuples
 Different values that exist in the two tuples are going to be compared by order.
@@ -224,4 +256,182 @@ stepCounter.totalSteps = 360
 stepCounter.totalSteps = 896
 // About to set totalSteps to 896
 // Added 536 steps
+```
+## Methods
+* regular methods
+* mutating methods (for enum and structs)
+* static methods (type methods)
+* class methods (type methods for class that allow subclasses to override them)
+## Subscripts
+`subscript` are ways to access a type properties by providing a parameter, the same way that array elements is accessed by and indexes or dictionary elements with keys.
+```swift
+struct TimesTable {
+    let multiplier: Int
+    subscript(index: Int) -> Int {
+        return multiplier * index
+    }
+}
+let threeTimesTable = TimesTable(multiplier: 3)
+print("six times three is \(threeTimesTable[6])")
+```
+### Read-write subscripts
+```swift
+subscript(index: Int) -> Int {
+    get {
+        // Return an appropriate subscript value here.
+    }
+    set(newValue) {
+        // Perform a suitable setting action here.
+    }
+}
+```
+* A type can have multiple subscripts
+* subscripts can have any form of parameters. They also can have multiple parameters
+* It's possible to have subscripts on types (static subscript)
+
+## Initializers
+### Structs and enums
+* structs and enums can have custom initializer.
+* If you define a custom initializer you will not have access to default (member wise) initializer.
+* In an initializer for referring to other initializer you can use `self.init()`
+### Classes
+For classes we have three types of initializers
+#### Designated initializers
+`init(paramenters)`
+These are the default initializers that we have in classes.
+* They have to initialize all of the class properties.
+* If the class is subclassed from another class they should call the `super.init` after their value initializations.
+#### Convenience Initializers
+`convenience init(parameters)`
+* They should first, call to one of the same class initializers with `self.init()`
+* The chain of initializers in convenience initializers should ultimately call a designated initializer.
+* They can't call their super class initializers
+#### Required Initializers
+`required init(parameteres)`
+* The required init should be implemented by all the subclasses of the current class
+* It's not necessary to provide an implementation for required init as long as subclasses implementations are satisfy the initializer requirements
+#### Example of class initializers
+```swift
+class Food {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    convenience init() {
+        self.init(name: "[Unnamed]")
+    }
+}
+
+class RecipeIngredient: Food {
+    var quantity: Int
+    init(name: String, quantity: Int) {
+        self.quantity = quantity
+        super.init(name: name)
+    }
+    override convenience init(name: String) {
+        self.init(name: name, quantity: 1)
+    }
+}
+```
+#### Inheritance initializers
+>**Rule 1**
+If your subclass doesn’t define any designated initializers, it automatically inherits all of its superclass designated initializers.
+**Rule 2**
+If your subclass provides an implementation of _all_ of its superclass designated initializers — either by inheriting them as per rule 1, or by providing a custom implementation as part of its definition — then it automatically inherits all of the superclass convenience initializers.
+### Failable Initializers
+enums and structs and classes all can have failable initializers.
+```swift
+class Product {
+    let name: String
+    init?(name: String) {
+        if name.isEmpty { return nil }
+        self.name = name
+    }
+}
+
+class CartItem: Product {
+    let quantity: Int
+    init?(name: String, quantity: Int) {
+        if quantity < 1 { return nil }
+        self.quantity = quantity
+        super.init(name: name)
+    }
+}
+```
+### Default value with closures
+Instead of providing values for properties that need some calculation in initializers, it's possible to write the value with closures.
+In the below example defining an init will remove the default init that compiler generates for our struct. we perform the calculation for `someProperty` in a closure and use default generated init for other properties instantiation 
+```swift
+struct SomeClass {
+    let someProperty: Int = {
+	    //... some calculation
+        return someValue
+    }()
+    //...other properties
+}
+```
+## Extensions
+Extensions can add new functionality to a type, but they can’t override existing functionality.
+## Protocols
+* If you specify `{ get }` for a property of a protocol that means it should be gettable, also it has the option of being settable, whereas if you specify `{ get set }` that means it should be gettable and settable.
+* If a method is being used in value types and it mutates states then you should define it with `mutating`, the implementations can decide to omit the mutating or not based on their context
+* You can define initializers inside protocols, any class that conforms to it should implement that protocol `init` with `required`
+
+Weird example of Associated types
+```swift
+protocol SuffixableContainer: Container {
+    associatedtype Suffix: SuffixableContainer where Suffix.Item == Item
+```
+
+## Opaque and Boxed Types
+* opaque types = `some`
+* boxed types = `any` or protocol names
+* Opaque types are kind of opposite of generic types (instead of being generic internally and specialized externally, they are specialized internally and exposed as generics externally)
+### Example of Opaque Type benefits
+* boxed type
+```swift
+func protoFlip<T: Shape>(_ shape: T) -> Shape {
+	//
+}
+
+let protoFlippedTriangle = protoFlip(smallTriangle)
+let sameThing = protoFlip(smallTriangle)
+protoFlippedTriangle == sameThing  // Error
+```
+
+* opaque type
+```swift
+func protoFlip<T: Shape>(_ shape: T) -> some Shape {
+	//
+}
+
+let protoFlippedTriangle = protoFlip(smallTriangle)
+let sameThing = protoFlip(smallTriangle)
+protoFlippedTriangle == sameThing // valid
+//both has the same concreate type but it's unknwon
+```
+
+### Another example
+```swift
+protocol Container {
+    associatedtype Item
+}
+
+extension Arry: Container {}
+
+// Error: Protocol with associated types can't be used as a return type.
+func makeProtocolContainer<T>(item: T) -> Container {
+    return [item]
+}
+
+
+// Error: Not enough information to infer C.
+func makeProtocolContainer<T, C: Container>(item: T) -> C {
+    return [item]
+}
+
+//valid
+func makeProtocolContainer<T>(item: T) -> some Container {
+    return [item]
+}
 ```
