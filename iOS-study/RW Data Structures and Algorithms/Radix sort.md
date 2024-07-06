@@ -27,3 +27,26 @@ forth digits (of previously sorted array):
 `1, 0, 0, 1, 0`
 buckets: `[[38, 101, 523], [100, 1432], [], [], [], [], [], [], [], []]`
 sorted: `[38, 101, 523, 1000, 1432]`
+
+## Implementation
+```swift
+func radixSort(_ elements: inout [Int]) {
+	var digits = 1
+	let base = 10
+	var finished = false
+	while !finished {
+		finished = true
+		var buckets: [[Int]] = Array(repeating: [], count: 10)
+		elements.forEach { element in
+			let remaining = element / digits
+			let digit = remaining % base
+			buckets[digit].append(element)
+			if remaining > 0 {
+				finished = false
+			}
+		}
+		digits = digits * base
+		elements = buckets.flatMap { $0 }
+	}
+}
+```

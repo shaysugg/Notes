@@ -6,7 +6,7 @@ Regular search
 Binary search
 ![[bs2.png]]
 ## Implementation
-It's make sense to implement binary search functionality on any array that can be sorted which means its elements are comparable.
+It make sense to implement binary search functionality on any array that can be sorted which means its elements are comparable.
 ```swift
 public extension RandomAccessCollection where Element:
 Comparable {

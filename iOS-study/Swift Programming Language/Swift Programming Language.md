@@ -53,7 +53,7 @@ func processFile(filename: String) throws {
 ### Comparing tuples
 Different values that exist in the two tuples are going to be compared by order.
 ```swift
-(1, "zebra") < (2, "apple")   // true because 1 is less than 2; "zebra" and "apple" aren't compared
+(1, "zebra") < (2, "apple")   // true because 1 is less than 2; "zebra" and "apple" will not be compared
 (3, "apple") < (3, "bird")    // true because 3 is equal to 3, and "apple" is less than "bird"
 (4, "dog") == (4, "dog")      // true because 4 is equal to 4, and "dog" is equal to "dog"
 ```
@@ -435,3 +435,74 @@ func makeProtocolContainer<T>(item: T) -> some Container {
     return [item]
 }
 ```
+### Reference cycles examples
+#### Both objects allowed to be nil
+This scenario is best resolved with a weak reference.
+```swift
+class Person {
+    let name: String
+    var apartment: Apartment?
+    deinit { print("\(name) is being deinitialized") }
+}
+
+class Apartment {
+    let unit: String
+    weak var tenant: Person?
+    deinit { print("Apartment \(unit) is being deinitialized") }
+}
+
+var john: Person?
+var unit4A: Apartment?
+
+john = Person(name: "John Appleseed")
+unit4A = Apartment(unit: "4A")
+
+john!.apartment = unit4A
+unit4A!.tenant = john
+
+john = nil
+// Prints "John Appleseed is being deinitialized"
+
+unit4A = nil
+// Prints "Apartment 4A is being deinitialized"
+```
+#### One is allowed to be nil the other not
+This scenario is best resolved with an unowned reference.
+```swift
+class Customer {
+    let name: String
+    var card: CreditCard?
+
+    deinit { print("\(name) is being deinitialized") }
+}
+
+//credeit card ALWAYS have to be related to a customer
+class CreditCard {
+    let number: UInt64
+    unowned let customer: Customer
+    deinit { print("Card #\(number) is being deinitialized") }
+}
+
+var john: Customer?
+john = Customer(name: "John Appleseed")
+john!.card = CreditCard(number: 1234_5678_9012_3456, customer: john!)
+
+john = nil
+// Prints "John Appleseed is being deinitialized"
+// Prints "Card #1234567890123456 is being deinitialized"
+```
+#### Both are not allowed to be nil
+It’s useful to combine an unowned property on one class with an implicitly unwrapped optional property on the other class.
+```swift
+class Country {
+    let name: String
+    var capitalCity: City!
+}
+
+
+class City {
+    let name: String
+    unowned let country: Country
+}
+```
+*maybe more deeper look later?*

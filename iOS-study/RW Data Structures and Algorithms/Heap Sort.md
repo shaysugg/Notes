@@ -31,7 +31,7 @@ The `|` is represent of the fixed sorted part which we don't consider in our sif
 ## Code
 ```swift
 extension Heap {
-	func sorted(verbos: Bool = false) -> [Element] {
+	func sorted() -> [Element] {
 		var heap = Heap(elements: elements, sort: sort)
 		for index in heap.elements.indices.reversed() {
 			heap.elements.swapAt(0, index)

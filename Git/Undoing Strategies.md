@@ -32,7 +32,7 @@ by using `git reset --hard [commit hash]` we remove all the commits that happene
 * ==not good for public branches== since it would change the history.
 * Unstaged changes are going to be **==removed==** also.
 * It's good to create a backup branch and then do the git reset hard
-* git reset also available with --soft option. In that case it will remove the **commits** but will keep the **changes** as uncommitted files. you have the options to commit the changes in a different format or discard them. It's still not safe to be used with public branches though.
+* git reset also available with --soft option. In that case it will remove the **commits** but will keep the **changes** as uncommitted files. you have the options to commit the changes in a different format or discard them. ==It's still not safe to be used with public branches though.==
 ## 4. Reset
 `git reset` use for undo **staging changes**. *ie undo whatever staged by `git add`*
 *`git restore --staged` may be a more nicer equivalent*
@@ -46,3 +46,16 @@ by using `git reset --hard [commit hash]` we remove all the commits that happene
 -   Use `git checkout` to move around and review the commit history.
 -   `git revert` is the best tool for undoing shared public changes.
 -   `git reset` is best used for undoing local private changes.
+
+---
+## Reflog
+By using `reflog`s you have more options for reset. Not only commits but also possible to reset to a certain change.
+write `git reflog`
+find which change you want to reset to
+```bash
+git reflog  
+4a5cbb3 HEAD@{0}: rebase finished: returning to refs/heads/foo 4a5cbb3 HEAD@{1}: rebase: fixed such and such  
+904f7f0 HEAD@{2}: rebase: checkout upstream/master  
+3cbe20a HEAD@{3}: commit: fixed such and such
+```
+use `git reset Head@{2}`for example in order to reset the last two changes

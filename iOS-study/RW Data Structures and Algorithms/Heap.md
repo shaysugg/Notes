@@ -61,8 +61,10 @@ mutating func remove() -> Element? {
 }
 
 mutating func siftDown(from index: Int) {
-	var parent = index // 1
-	while true { // 2
+	var parent = index 
+
+	//keep swapping until find a correct place
+	while true { 
 	let left = leftChildIndex(ofParentAt: parent) // 3
 	let right = rightChildIndex(ofParentAt: parent)
 	

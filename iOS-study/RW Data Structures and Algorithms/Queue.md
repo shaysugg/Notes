@@ -55,6 +55,7 @@ public mutating func dequeue() -> T? {
 
 ### Doubly Linked List Implementation
 [A doubly linked list](https://www.geeksforgeeks.org/doubly-linked-list/) is simply a linked list in which nodes also contain a reference to the previous node.
+TODO: It is also possible with regular linked list???
 ```Swift
 //Doubly linked list node
 class Node<Value> {

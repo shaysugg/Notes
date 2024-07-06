@@ -2,7 +2,6 @@ Quick sort uses the divide and conquer same as [[Merge Sort]], However the main 
 * It doesn't require extra space for sorting. It can sort on the same array
 * In merge sort you divide the array into two subarray with the same length. This isn't a case for quick sort since there are multiple partitioning strategies that help to divide in a more balanced way.
 * The worst time complexity is O(n^2) which is greater than merge sort but overall it's a more suitable option for sorting mainly because it doesn't require additional space.
-
 ## Partitioning Strategies
 ### No Strategy
 *It's an arbitrary thing mostly for educational purposes.*

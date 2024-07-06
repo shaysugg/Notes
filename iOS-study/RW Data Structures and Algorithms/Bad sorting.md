@@ -35,7 +35,7 @@ public func bubbleSort<Element>(_ array: inout [Element])
 * First loop i traverse from beginning to end (left to right)
 * Second loop j travers from i next element to end (left to right)
 * On second loop you find the minimum value and store it in a value that is in first loop
-* In first loop If a minimum value smaller than current element has been found you will swap the current and the minimum value (This one improves algorithm by avoiding unnecessary swaps)
+* In first loop If a minimum value smaller than current element has been found you will swap the current and the minimum value (This one improves algorithm by avoiding ==unnecessary swaps==)
 * ==On each second loop iteration the smallest number will be on left side==
 ```swift
 public func selectionSort<Element>(_ array: inout [Element])

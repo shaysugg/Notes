@@ -8,13 +8,13 @@ linked list is a collection of nodes. Each node holds a value and has a referenc
 
 ```Swift
 struct LinkedList<Value> {
-	let head: Node<Value>?
-	let tail: Node<Value>?
+	var head: Node<Value>?
+	var tail: Node<Value>?
 }
 
 class Node<Value> {
-	let value: Value
-	let next: Node?
+	var value: Value
+	var next: Node?
 
 	init(value: Value, next: Node {
 		self.value = value
@@ -32,6 +32,7 @@ class Node<Value> {
 * **remove(after:)**: Removes a value anywhere in the list. O(1)
 * **node(at)**: returns a node at given index. O(n)
 
+*In most of the above implementations there are some edge cases that we should pay attention. ==Usually when list is empty or have 1 element==*
 ## Value semantics and copy-on-write
 Since linked list are heavy depended on the reference types if we have two linked list that second one did copied from the first one then some mutation on one of these linked list could have some side affects on another.
 ```Swift
