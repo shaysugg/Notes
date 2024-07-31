@@ -4,15 +4,12 @@ Imagine we have hundreds of async tasks that we want to execute in parallel. We 
 ## Usage Example
 ```swift       
 try await withThrowingTaskGroup(of: String.self, body: { group in
-
 	group.addTask {
 		try await getStringByPerformingAnAsyncOperation()
 	}
-	
 	for try await string in group {
 		print(string)
 	}
-
 })
 
 func getStringByPerformingAnAsyncOperation() async throws -> String{

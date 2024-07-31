@@ -25,7 +25,6 @@ we usually protect user data in these 3 situations:
 ## Hashing
 🟢 Pros: nobody can't reverse the hash and find out the actual data.
 🔴 Cons: attacker can use the digest (hashed data) instead of actual data.
-
 ### normal hash
 not the same output each time *(very useless)*
 ```swift
@@ -34,7 +33,6 @@ var hasher = Hasher()
 item.hash(into: &hasher)
 hasher.finalize()
 ```
-
 ### cryptographic hash
 produce the same value each time!
 ```swift
@@ -42,8 +40,6 @@ item = "HASH ME!"
 let data = item.data(using: .utf8)!
 let digest = SHA256.hash()
 ```
-
-
 ## HMAC
 Hash-based Message Authentication Code
 Signing the digest

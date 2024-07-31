@@ -122,3 +122,49 @@ pathMonitor.pathUpdateHandler { path in
     }
 }
 ```
+## Web Sockets
+* You don't have to poll anything
+* used in interactive platforms such as: games, collaboration tools, chats
+* Low latency communications
+### Implementation
+Important to recursively watch for the next message.
+```swift
+    var webSocketTask: URLSessionWebSocketTask?
+    
+    func connect() {
+        let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+        webSocketTask = session.webSocketTask(with: url)
+        webSocketTask?.resume()
+        receiveMessage()
+    }
+    
+    func send(_ message: String) {
+        let message = URLSessionWebSocketTask.Message.string(message)
+        webSocketTask?.send(message)
+    }
+    
+    func receiveMessage() {
+        webSocketTask?.receive { [weak self] result in
+	        //Important you should recursively watch for the next message
+	        defer {
+		        self?.receiveMessage()
+	        }
+            switch result {
+            case .success(let message):
+                switch message {
+                case .string(let text):
+                    print("Received text message: \(text)")
+                case .data(let data):
+                    print("Received binary message: \(data)")
+                @unknown default:
+                    break
+                }
+                
+            case .failure(let error):
+                print("WebSocket receive error: \(error)")
+            }
+        }
+    }
+}
+
+```

@@ -32,52 +32,29 @@ The compiler keeps track of whether a given piece of code could run asynchronous
 
 ``` swift      
 func fetchFOOs() async throws -> [String] {
-
  guard let url = URL(string: "http://someURL.com") else {
-
 	 throw "Unvalid URL"
-
  }
-
  let (data, response) = try await URLSession.shared.data(from: url)
-
  guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-
 	 throw "unvalid response"
-
  }
-
  return try JSONDecoder().decode([FOO].self, from: data)
-
  }   
 
 ```  
-
-
-* Example of getting a **stream** of responsed from an API call:
-
+* Example of getting a **stream** of responses from an API call:
 ``` swift      
 func fetchStreamOfFOOs() async throws -> [String] {
-
 	guard let url = URL(string: "http://someURL.com") else {
-
 	  throw "Unvalid URL"
-
 	 }
-
 	let (stream , response) = try await liveURLSession.bytes(from: url)
-
-
 	guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-
 		 throw "Unvalid response"
-
 	 }
-
 	 let decoder = JSONDecoder()
-
 	 for try await line in stream.lines {
-
 		let sortedSymbols = try decoder.decode([SomeFoo].self,
 											   from: Data(line.utf8))
 		print(sortedSymbols)
@@ -94,29 +71,24 @@ func fetchStreamOfFOOs() async throws -> [String] {
 ![](canceling_task.png)
 More about [Task Cancellation](Task%20Cancellation.md)
 ### Bird Eye view of async/await
-
 * functions
 ```swift
 func myfunc() async throws -> String {}
-
 try await myfunc()
 ```
-
 * computed properties
 ```swift       
 var propety: String {
 	get async {
-
+	//....
 	}
 }
-
 await property
 ```
-
 * closures
 ```swift       
 func myfunc((Int) async -> Int) {
-	
+	//...	
 }
 
 func {

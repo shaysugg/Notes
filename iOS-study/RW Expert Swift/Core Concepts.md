@@ -64,7 +64,7 @@ condition ? try valueTrue() : try valueFalse()
 Includes **protocols, enumerations, structures and classes**
 A _named type_ is a type that can be given a particular name when it’s defined. For example, instances of a user-defined class named `MyClass` have the type `MyClass`
 In addition to user-defined named types, the Swift standard library defines many commonly used named types, including those that represent arrays, dictionaries, and optional values.
-Data types that are normally considered basic or primitive in other languages — such as types that represent numbers, characters, and strings — are actually named types. defined and implemented in the Swift standard library using structures
+Data types that are normally considered basic or **primitive** in other languages — such as types that represent numbers, characters, and strings — are actually named types. defined and implemented in the Swift standard library using structures
 ### Compound types 
 Includes **functions and tuples**
 A compound type is a type without a name, defined in the Swift language itself.

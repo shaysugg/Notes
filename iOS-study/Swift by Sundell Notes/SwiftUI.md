@@ -35,7 +35,7 @@ Tells the swiftUI how to respect the view demanded size. In the above example th
 `ZStack`s are useful for arranging views on top of each other but their expansion is based on the maximum size of their elements. For instance if we have a `LinearGradient` and a `Text`, since `LinearGradient` by default takes as much as space that's possible our z stack will also fill the entire available space.
 But sometimes we may only want to fix the expansion and position of one element base on a specific view. we can use `.background` or `.overlay` for that.
 ## State management
-* `@StateObject`, `ObservableObject`, `State`, `@Environment`, `@EnvironmentObject`
+* `@StateObject`, `@ObservedObject`, `@State`, `@Environment`, `@EnvironmentObject`
 * Use binding instead of closures
 * Environment keys required a value at compile time while EnvironmentObject values will check at runtime and if they were not provided the application will crash.
 ```Swift 
@@ -122,7 +122,7 @@ extension View {
 When it's come to specific type it's possible to extend that type and add a function which modifies it. for example
 ```swift
 extension Button {
-	withSomeStyle() -> some View {} 
+	func withSomeStyle() -> some View {} 
 }
 ```
 However there is a better option here and it's by using `ButtonStyle`. 
@@ -158,7 +158,7 @@ struct EventDetailsComponent: UIViewRepresentable {
 * Make sure to pass a view configuration in `updateUIView`. Avoid passing configurations in `makeUIView`. *SwiftUI may reuse underlying view as much as possible so we shouldn't assume that each time SwiftUI recreate the `UIViewReprestentable` the underlying view is initialized in `makeUIView`*
 * always lazily create view in `makeUIView`
 ### Coordinator
-Define a custom coordinator when it's necessary to capture an object when creating uiViews. an example can be adding a target to a button which requires a class and a method of that class.
+Define a custom coordinator when it's necessary to ==capture an object when creating uiViews==. an example can be adding a target to a button which requires a class and a method of that class.
 ```swift
 struct ButtonComponent: UIViewRepresentable {
 // ...

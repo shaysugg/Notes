@@ -94,6 +94,7 @@ let eAcute: Character = "\u{E9}" // é
 let combinedEAcute: Character = "\u{65}\u{301}" // e followed by ́
 //These are both a single character and represent é
 ```
+*The character on top of e is called acute accent.*
 These character format allows the string count to become what we naturally expect instead of being number of unicode scalars. Additionally it will effect the subscripting behaviors. It's not possible to directly access a character with a raw number. Instead It's required to use `String.Index`es.  For example
 ```swift
 let greeting = "Guten Tag!"

@@ -44,6 +44,13 @@ struct VideoCollection: Codable {
     let videos: [Video]
 }
 ```
+```
+enum_name: { 
+associated_type1_case_name:  associated_type1_value,
+associated_type2_case_name:  associated_type2_value,
+...
+}
+```
 ## Ignoring Keys
 Let's say we don't want to assign `localDarfts` from while we're decoding json data.
 ```Swift

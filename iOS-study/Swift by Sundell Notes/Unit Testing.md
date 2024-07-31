@@ -113,7 +113,7 @@ class Test: XCTest {
 	     //travel in time
 	     let expectation = expectation(forNotification: PremiumService.expiredNotif, object: nil)
 		timemeTraveler.travel(by: 1.5)
-		//verify that now we traveled notif be will raise
+		//verify that now we have traveled, notif will be raisen
 		try await sut.setupNotificationForDeadline()
 		await fulfillment(of: [expectation], timeout: 0.0001)
 	    }

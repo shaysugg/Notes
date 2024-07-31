@@ -11,10 +11,10 @@ extension Sequence {
 
   func sorted<T: Comparable>(
     by keyPath: KeyPath<Element, T>,
-    using: (T, T) -> Bool = (<)
+    using sort: (T, T) -> Bool = (<)
   ) -> [Element] {
     sorted { a, b in
-      a[keyPath: keyPath] < b[keyPath: keyPath]
+      sort(a[keyPath: keyPath], b[keyPath: keyPath])
     }
   }
 }
@@ -70,5 +70,3 @@ By using swift sequences we can construct objects when our iteration reaches to 
 * Initializing with throwable closure`Result { try decoder.decode(Model.self, from: data) }
 * Get its result with try `try result.get()`
 * Mapping functions `dataResult.map {}`
-
-//TODO Different asserts
