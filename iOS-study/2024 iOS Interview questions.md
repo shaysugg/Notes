@@ -139,9 +139,28 @@
 * What is the usage of `Task`? How it's lifetime will be managed?
 * Why you call task sleep with `try`?
 ## Core Data
-* 
+* How do you setup a core data in a new project?
+	* `NSManagedObjectModel`, `NSPersistentContainer`, `NSManagedObjectContext`
+*  How do you make a persistent container to store its data on memory only?
+* What is you strategy to temporarily write something on core data in a way that if we save the viewContext it will not be saved?
+* What are the batch operation? When they're useful? What drawbacks they may have?
+* What are some strategies to update the app data when performing a batch request?
+* How you can observe changes of `NSManagedObjectContext`?
+* Explain what's the `NSFetchResultController` and what usages it has?
+* How can we have objects that are unique with some properties?
+* Explain fetch limits and number of objects when you perform fetching?
+* How you can create multiple predicates?
+* How can you dispatch a heavy work to background in core data? (2 methods)
+* Is it core data functions thread safe? If they're not how you can prevent race conditions?
+* How you can fetch a lots of items asynchronously ?
+* Is it safe to share different `NSManajedObject` between different threads?
+* In core data what are the `ValueTransformer`s and what usage they have?
+* Explain different delete rules in core data relationships?
+* Explain the lazy loadings of core data models and relationships?
+* Briefly explain lightweight migration in core data?
 ---
 TODO: Architectures
 TODO: ARKIT
 TODO: More on codable techniques? (ignoring invalid values in array, default values)
 TODO: Swift Document keypath and the others
+TODO: Fetchresutcontroller wrapper in core dtaa

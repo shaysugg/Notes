@@ -25,7 +25,7 @@ Then we create our object on the child context
 let note = Note(context: tmpContext)
 ```
 If we save **child context** then the object going to be saved also on the **parent context**.
-However no matter if we save the parent context changes or not the object is not going to be saved.
+However no matter if we save the parent context changes or not, the object is not going to be saved.
 ```Swift
 try! tmpContext.save() // note is saved here
 try! viewContext.save() // note is not saved
@@ -63,6 +63,7 @@ see: [[Batch Operations]]
 * Won't show child context changes.
 * Won't work with batch requests.
 ### `NSFetchResultController` in vm
+https://developer.apple.com/documentation/coredata/nsfetchedresultscontroller
 * Check for the changes in one context and will fetch the changes.
 * Can manually call fetch on it and retrieve data.
 * Won't show child context changes (unless manually call fetch).
