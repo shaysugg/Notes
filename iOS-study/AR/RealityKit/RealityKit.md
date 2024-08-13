@@ -6,7 +6,7 @@ Architect(ECS)
 
 Components represent states
 We have model components that represent the shape of an entity
-Entity Query is used to filter and reterive scene entities in systems
+Entity Query is used to filter and retreive scene entities in systems
 systems: three important parts
 * init
 * query

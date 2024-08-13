@@ -25,6 +25,7 @@ we usually protect user data in these 3 situations:
 ## Hashing
 🟢 Pros: nobody can't reverse the hash and find out the actual data.
 🔴 Cons: attacker can use the digest (hashed data) instead of actual data.
+for digital signature, password transitions, ...
 ### normal hash
 not the same output each time *(very useless)*
 ```swift
@@ -39,6 +40,12 @@ produce the same value each time!
 item = "HASH ME!"
 let data = item.data(using: .utf8)!
 let digest = SHA256.hash()
+```
+### Digest converting
+converting a digest to string
+```swift
+let string = digest.compactMap{ String(format: "%02x", $0) }
+.joined()
 ```
 ## HMAC
 Hash-based Message Authentication Code
@@ -78,13 +85,13 @@ there are two AEAD common use:
 **inputs:**
 * data that we want to get encrypted
 * a Secret Key
-* an IV or nounce
+* an IV or nonce
 	
 **operations:**
-1. secret key + nounce = secondary key
-2. use key and nounce to encrypt data and create a **encrypted data aka ciphertext **
+1. secret key + nonce = secondary key
+2. use key and nonce to encrypt data and create a **encrypted data aka ciphertext **
 3. secondary key + encrypted data = keyed digest
-4. secrey key + nounce + keyed digest = encrypted keyed digest
+4. secret key + nonce + keyed digest = encrypted keyed digest
 
 SealBox = encrypted data + encrypted keyed digest
 	

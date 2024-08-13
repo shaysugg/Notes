@@ -1,5 +1,5 @@
 * To show stashed files you can use `git stash show`
-* You can have different stashes at one time in order to see previous stashes use git stash list
+* You can have different stashes at one time in order to see previous stashes use `git stash list`
 ```bash
 stash@{0}: WIP on master: c60e8a6 Merge branch 'feature/f7'
 stash@{1}: WIP on master: c60e8a6 Merge branch 'feature/f7'

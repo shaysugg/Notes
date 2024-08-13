@@ -1,4 +1,4 @@
-## Common way of loging
+## Common way of logging
 `git log --decorate --oneline --graph`
 ## Log Sub Commands
 <table>

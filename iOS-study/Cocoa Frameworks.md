@@ -14,7 +14,7 @@ Library is a collection of object files that program can link against.
 There are two types of libraries
 * static: The source code of the library is copied into the application code
 * dynamic: They are loaded at runtime.
-## Framework
+### Framework
 Framework is a hierarchical directory that encapsulate shared resources in a single package. This resources can be libraries, image files, localized strings, documentations.
 * Frameworks are used as modules in swift codes. `#import moduleName` 
 ### Modules
@@ -50,7 +50,9 @@ xcodebuild -create-xcframework \
 ../
 -output build/<Framework-Name>.xcframework
 ```
-4) For installing in projects
+## Distribution
+### SPM
+For installing in projects
 	* You can drag the produced framework into the `<Your Target>->Frameworks, libraries, and Embedded content`
 	* You can also distribute it with SPM. Add it to the package manifest like;
 ```swift
@@ -69,4 +71,31 @@ let package = Package(
 // For refrencing it as a URL check https://github.com/KeyboardKit/KeyboardKitPro/blob/master/Package.swift
 ```
 
-TODO: Apparently There are som issues with shipping an app with `xcframeworks` to the appstore.
+TODO: Apparently There are some issues with shipping an app with `xcframeworks` to the appstore.
+
+### `cocoapods`
+Only one `.podspec` file is required to be created at root directory of the project
+You this template should be enough to make it work. Just make sure to address the path of the `xcframework` in the`s.vendored_frameworks`.
+```swift
+Pod::Spec.new do |s|
+s.name = 'BinaryStudyPackage'
+s.version = '1.0.0'
+s.summary = 'for study'
+s.homepage = 'https://www.google.com'
+  
+s.author = "MeeeeeOrg"
+s.license = "LICENSE.txt"
+
+s.ios.deployment_target = '14.0'
+s.osx.deployment_target = '11.0'
+
+s.source = { :git => 'https://github.com/shaysugg/BinaryStudy.git' }
+s.vendored_frameworks = 'Sources/BinaryStudy.xcframework' //path to framework
+end
+```
+For adding more details check:
+https://guides.cocoapods.org/syntax/podspec.html
+
+other resources
+https://stackoverflow.com/a/64782335
+https://medium.com/plus-minus-one/distribute-your-xcframework-how-to-create-a-xcframework-cde8cdff00eb

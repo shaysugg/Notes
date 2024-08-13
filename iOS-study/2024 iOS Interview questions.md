@@ -8,14 +8,14 @@
 * What are the ways of embedding special characters in strings?
 * Can we access a character of string with an integer index? If we can't can you explain why with an example? And what's the correct way of accessing characters in strings?
 * What's the substring? what advantage using it has?
-* With what functions we can compare the characters at the beginning or the end of  two strings?
+* With what functions we can compare the characters at the beginning or the end of  two strings? ==X==
 * What's the requirement for a type to being used as an element of a set? And how you add that behavior to a type?
-* What are the unique operations that you can have with two sets?
+* What are the unique operations that you can have with two sets? ==X==
 * What are some advance operations with switch cases? like switch cases with tuples, conditional cases, pack multiple cases with or.
 * Explain different types of closures in Swift.
 * How lazy property works? Is there any potential issues when we access it from multiple threads?
 * Explain different types of methods
-* What are subscripts? What ability they add to an object?
+* What are subscripts? What ability they add to an object? ==X==
 * Can you explain how initializers work in structs and enums?
 * Can you explain different initializers that exist in classes and what are their usages?
 * How you can inherit all of the superclass designated initializers? How it's possible to inherit all of the convenience initializers?
@@ -64,7 +64,7 @@
 * Briefly explain the hierarchy of sequences and collections in Swift.
 * Explain sequences and the different ways you can implement them in Swift.
 * What are the collections? Explain different types of them. `Collection`, `BidirectionalCollection`, `RandomAccessCollection`, `MutableCollection`, `RangeReplaceableCollection`
-* What's happened when you make an array lazy. Explain it with an example?
+* What's happening when you make an array lazy. Explain it with an example?
 * Explain recoverable errors and none-recoverable errors in swift?
 * Explain function injections as an alternative to protocol oriented polymorphism?
 * How can you specialized generics types in functions, extensions and more?
@@ -72,6 +72,8 @@
 * What are the `keypath`s? Explain with an example its usage? (sort based on keypath)
 * What is the difference between using calling `[..<5]` or `prefix(5)` on an array?
 * How a string can be divided to multiple strings based on a separator? If there are multiple ways explain their differences.
+* What are macros? How many macro types we have?
+* Can you explain overall steps that you take to write a macro?
 ## SwiftUI
 [[iOS-study/Swift by Sundell Notes/SwiftUI]]
 * What are the `preferenceKey`s. Explain their usages with an example.
@@ -88,6 +90,7 @@
 * Why it's a best practice to avoid AnyView? What are some alternatives for its usages?
 * How view cycles are being handled in SwiftUI? what are the differences between functions?
 * Explain viewModifiers unique features (state management) with an example. (validator)
+* Explain navigation patterns that you've used with SwiftUI?
 ## TDD
 * What is TDD? Explain it's common steps.
 * For which part of the code you should write tests and for each part you should not?
@@ -153,14 +156,78 @@
 * How can you dispatch a heavy work to background in core data? (2 methods)
 * Is it core data functions thread safe? If they're not how you can prevent race conditions?
 * How you can fetch a lots of items asynchronously ?
+* Explain the usage of`performBackgroundTask`?
 * Is it safe to share different `NSManajedObject` between different threads?
 * In core data what are the `ValueTransformer`s and what usage they have?
 * Explain different delete rules in core data relationships?
 * Explain the lazy loadings of core data models and relationships?
 * Briefly explain lightweight migration in core data?
+## Architectures
+Assume these architectures:
+`MVC`, `MVVM`, `Elements`, `Redux`
+* What components each of them have?
+* What advantages and disadvantages each have?
+* Explain how you can start simply from MVC and build more complex architectures.
+* What technologies and frameworks can become handy in each architecture.
+* Explain different dependency injection methods that you've used?
+## Concurrency
+* What were the main two tools to handle concurrency before async await?
+* How do you work with threads?
+* How do you capture self in dispatch queue closures?
+* What are `DispatchWorkItem` and what benefits they have?
+* What are the `DispatchGroupes`? What purpose they have?
+* How you can run limit the number of tasks that dispatch group runs?
+* What are the `Operation`s? what's the main reason to use them instead of dispatch queues?
+* What's the simplest way to create a `Operation`?
+* Can you run asynchronous code in `Operation` ? If not what customization is needed?
+* What benefits using the operation queue has? (wait for completion,  pausing the queue, maximum number of parallel task, underlaying dispatch queue)
+* How operation canceling works? Why?
+* What tool you use to find and analyze potential concurrency problems?
+* What are 3 common concurrency problems and how you can address them?
+## ARKit
+* What is the general architecture that you use with `RealityKit`? What components it has?
+* How do you interact with different objects in systems?
+* What difference rendering with `ARKit` have with `RealityKit`?
+* How do you organize and reuse your code when used `ARKit`?
+* What are some of `ARSceneViewDelegate` methods that you've commonly used ?
+## CryptoKit
+* For data that is stored on disk what protection levels are available?
+* What types of hashing are exist? Can you explain their usages with examples?
+* In `CryptoKit` how we can validate data without knowing the actual data? (HAMC)
+* In `CryptoKit`  How we can encrypt and decrypt data?
+* In `CryptoKit`  How we can validate data without knowing the key that has created the data?
+* How we can build a end to end encryption in `CryptoKit`?
+## Git
+* In git logs how you can filter logs based on date? based on author? based on text in the commit message? based on the code that change contains a text?
+* What types of merges do we have and what's the differences between them?
+* What is cherry picking in git?
+* How you can see the difference between two last commits?
+* What is the difference between Rebase and merge?
+* What is the interactive rebase? How you can change the history with interactive rebase?
+* What is git stashing used for? how you can see the list of the stashes? how you can stash untracked changes?
+* What are some strategies to undo changes?
+* What are some caveats when you use git reset --hard?
+* What's the difference between reset --hard and reset --softs?
+* (practical) you have merged a feature and it's breaking the code and all your colleges are angry? How you can fix it in the most safe way?
+* If you want to see all of the changes and perform resets based on changes what will yo use?
+* Can you explain the differences between git pull and git fetch?
+* What git workflows you used in previous projects?
+## Other
+* How can you measure your build time with Xcode?
+* Did you have experience with adding localizations to your app?
+* What are mirrors? How you can mirror a property of a type?
+## Design Patterns
+For each of the below design patterns
+`AbstractFactory`, `Adaptor`, `Builder`, `ChainOFResponsibility`, `Composite`, `Decorator`, `FactoryMethod`, `Visitor`, `Singleton`, `Observers`, `MulticastDelegate`
+Explain the purpose and the overall structure that's needed to build it?
+
+Not that much important for now:
+`Bridge`, `Prototype`, `Proxy`, `Iterator`, `Template Method`, `Mediator`,`Strategy`, `StateMachiones`
+
 ---
-TODO: Architectures
-TODO: ARKIT
+TODO: ARKit raycasting
+TODO:NSPredicates
+
 TODO: More on codable techniques? (ignoring invalid values in array, default values)
 TODO: Swift Document keypath and the others
 TODO: Fetchresutcontroller wrapper in core dtaa

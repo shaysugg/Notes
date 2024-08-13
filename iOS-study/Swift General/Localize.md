@@ -17,3 +17,6 @@
 5. use keywords instead of actual string across the app.
 
 6. build and run to see keyword to see keywords would translate to the selected language of device.
+## More modern approach
+String catalog
+https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog
