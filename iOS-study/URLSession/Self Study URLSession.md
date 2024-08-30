@@ -112,6 +112,8 @@ configuration.timeoutIntervalForRequest = 30
 ```
 ## Network Reachability checks
 ```swift
+import Network
+
 let pathMonitor = NWPathMonitor()
 pathMonitor.pathUpdateHandler { path in
     switch path.status {

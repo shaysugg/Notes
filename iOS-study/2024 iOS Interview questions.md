@@ -113,7 +113,7 @@
 * Have you worked with `URLSessionDelegate`? If you have what functionality you've implemented with them? (Explain download manager)
 * Explain different cache policies in URLSession?
 * Explain different authentication methods that you've worked with. (JWT, OAuth, Basic)
-* How you handle errors that you get from `URLSessions`?
+* How do you handle errors that you get from `URLSessions`?
 * How do you use URLProtocol to mock `URLSession`?
 * How combine `share` can be useful when you use combine to do networking?
 * How you recognize that the user is offline or not?
@@ -225,9 +225,10 @@ Not that much important for now:
 `Bridge`, `Prototype`, `Proxy`, `Iterator`, `Template Method`, `Mediator`,`Strategy`, `StateMachiones`
 
 ---
-TODO: ARKit raycasting
 TODO:NSPredicates
+TODO: Instruments
+TODO: ARKit raycasting
+
 
 TODO: More on codable techniques? (ignoring invalid values in array, default values)
 TODO: Swift Document keypath and the others
-TODO: Fetchresutcontroller wrapper in core dtaa
