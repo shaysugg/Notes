@@ -31,4 +31,4 @@ By changing the last two commit command with s or squash the commits will be squ
 ```
 Note that the past three commits turned to one commit with the first commit message but a ==different commit hash==!
 ## Aborting interactive rebase
-If all the actions removed then rebase going to be considered as aborted (the comments is not required to be deleted)
+If all the actions removed then rebase going to be considered as aborted (the comments are not required to be deleted)

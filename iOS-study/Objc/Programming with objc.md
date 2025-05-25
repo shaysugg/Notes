@@ -269,6 +269,10 @@ void (^somework)(void) = ^(void){
 
 somework();
 ```
+typedfing blocks
+```objective-c
+typedef void (^QuestionAnsweredHandler)(NSInteger answer, NSString * questionID ,NSInteger index);
+```
 ### Structs
 ```objective-c
 struct Date {
@@ -457,4 +461,15 @@ It's quite tricky and in many objective-c codebases is not being used, however h
 It's easy and the same as we have in Swift. You only need to watch for retain cycles most of the times, and for preventing it make sure to define properties weak like;
 ```objective-c
 @property (weak, nonatomic) UIView *parentView;
+```
+### make self as weak
+```objective-c
+__weak ClassName *weakSelf = self;
+```
+## Multi-Threading
+switching to main thread
+```objective-c
+dispatch_async(dispatch_get_main_queue(), ^{
+	// ...
+});
 ```

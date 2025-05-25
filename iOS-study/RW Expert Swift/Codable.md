@@ -18,6 +18,7 @@ extension JSONDecoder.KeyDecodingStrategy {
 }
 ```
 ## Custom Coding Initializers
+[[Custom Decoding Example]]
 First we need to write the init and then choose our coding container.
 Different containers explained as below
 ![](attachments/coding-container.png)

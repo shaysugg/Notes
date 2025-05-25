@@ -44,7 +44,6 @@
 * In which cases we can achieve a polymorphism when we're decoding with enums. Explain it with an example
 * How do you ignore values with certain keys in json parsings?
 * Explain a polymorphism in json parsings with an example?
-
 * How optional type is defined in Swift?
 * What `rethrows` keyword does?
 * What are the fundamental types in swift? Explain each group with examples.
@@ -92,7 +91,7 @@
 * Explain viewModifiers unique features (state management) with an example. (validator)
 * Explain navigation patterns that you've used with SwiftUI?
 ## TDD
-* What is TDD? Explain it's common steps.
+* What is TDD? Explain its common steps.
 * For which part of the code you should write tests and for each part you should not?
 * What are some features of a good test? Explain with an example? 
 * How can you test async code? (async await, combine ,expectations)
@@ -166,7 +165,7 @@
 Assume these architectures:
 `MVC`, `MVVM`, `Elements`, `Redux`
 * What components each of them have?
-* What advantages and disadvantages each have?
+* What advantages and disadvantages each has?
 * Explain how you can start simply from MVC and build more complex architectures.
 * What technologies and frameworks can become handy in each architecture.
 * Explain different dependency injection methods that you've used?
@@ -196,7 +195,7 @@ Assume these architectures:
 * In `CryptoKit` how we can validate data without knowing the actual data? (HAMC)
 * In `CryptoKit`  How we can encrypt and decrypt data?
 * In `CryptoKit`  How we can validate data without knowing the key that has created the data?
-* How we can build a end to end encryption in `CryptoKit`?
+* How we can build an end to end encryption in `CryptoKit`?
 ## Git
 * In git logs how you can filter logs based on date? based on author? based on text in the commit message? based on the code that change contains a text?
 * What types of merges do we have and what's the differences between them?
@@ -209,7 +208,7 @@ Assume these architectures:
 * What are some caveats when you use git reset --hard?
 * What's the difference between reset --hard and reset --softs?
 * (practical) you have merged a feature and it's breaking the code and all your colleges are angry? How you can fix it in the most safe way?
-* If you want to see all of the changes and perform resets based on changes what will yo use?
+* If you want to see all of the changes and perform resets based on changes what will you use?
 * Can you explain the differences between git pull and git fetch?
 * What git workflows you used in previous projects?
 ## Other

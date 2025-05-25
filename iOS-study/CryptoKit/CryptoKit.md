@@ -166,7 +166,7 @@ in order for this here is what they need to do:
 let str = "very secret stuff"
 let data = str.data(using: .utf8)!
 //some salt both did agree on
-let salt = "some sult".data(using: .utf8)!
+let salt = "some salt".data(using: .utf8)!
 
 //A do this localy (1)
 let APrivateKey = Curve25519.KeyAgreement.PrivateKey()

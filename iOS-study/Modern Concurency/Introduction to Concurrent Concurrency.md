@@ -1,5 +1,3 @@
-# Introduction to Concurrent Concurrency
-
 In a synchronous context, code runs in one execution thread on a single CPU core.
 But all iOS and macOS and cocoa based apps are **asynchronous**.
 

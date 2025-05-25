@@ -137,3 +137,8 @@ let firstThree = FizzBuzz()
 In the above example all 100 strings and compacts to an array of 53 integers. It then filters that array by creating a new array of 27 even integers. **Finally, it picks off the first three values** of `[2, 4, 8]`
 but if we use `FizzBuzz().lazy` functions like `map, filter, reduce` only execute on-demand. this means **compactMap** and **isMultiple(of:)** only 8 times to find three values.
 [Lazy Collections](https://www.avanderlee.com/swift/lazy-collections-arrays/)
+Problem with lazy:
+* Lazy Collections don’t cache
+* Don’t over optimize
+* Take the delay into account
+

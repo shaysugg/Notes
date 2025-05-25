@@ -1,4 +1,4 @@
-## Literals
+c## Literals
 > Literals are a great abstraction to let consumers initialize your types using typed literals, such as String, Bool, Array and many others.
 
 Some examples can be: `ExpressibleByStringLiteral`, `ExpressibleByArrayLiteral`, `ExpressibleByDictionaryLiteral`

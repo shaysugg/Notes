@@ -117,3 +117,6 @@ actor SafeCounter {
     }
 }
 ```
+## Prevent data races not race conditions
+Actors serialize access to their states in order to prevent data races. However race conditions or reentrancy (miss order of function execution) is still possible. 
+See: https://www.youtube.com/watch?v=wpVwHkBVdJc

@@ -3,24 +3,16 @@
 [Deep dive into Swift frameworks](https://theswiftdev.com/deep-dive-into-swift-frameworks/)
 [Distributing closed-source frameworks with SPM](https://danielsaidi.com/blog/2021/02/15/distributing-closed-source-frameworks-with-spm)
 ## Concepts
-### Package
-* A package consists of bunch of files (Code + resources + Binaries) and a manifest that describes it. 
-* Packages can have one or more **targets**.
-* Each target specifies **a product** and can have multiple dependencies
-### Product
-Targets can build their products as a library or a executable.
-### Library
-Library is a collection of object files that program can link against.
-There are two types of libraries
-* static: The source code of the library is copied into the application code
-* dynamic: They are loaded at runtime.
-### Framework
-Framework is a hierarchical directory that encapsulate shared resources in a single package. This resources can be libraries, image files, localized strings, documentations.
-* Frameworks are used as modules in swift codes. `#import moduleName` 
-### Modules
-Swift organizes code into _modules_. Each module specifies a namespace and enforces access controls on which parts of that code can be used outside of the module.
-
-TODO? More?
+Package: Contains products and target and dependencies
+Products:
+* Made out of one or several target.
+* You add dependencies to the products' of a package in the client project.
+Targets:
+* Blocks of the code in your package
+* Each directory under Sources directory is corresponding to a target 
+* They are equivalent to module. It means in the client code they are imported
+* Targets can depend on **other targets** or the **dependencies of the package**
+[[SPM elements concepts.canvas]]
 ## Building a close source framework
 1) Create a `xcframework`
 2) If you're developing with swift there is no need for adding header files. Just add your swift files and mark the methods and objects that are going to be used by clients as `public`

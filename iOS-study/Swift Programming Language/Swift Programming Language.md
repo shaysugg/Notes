@@ -308,7 +308,7 @@ These are the default initializers that we have in classes.
 * The chain of initializers in convenience initializers should ultimately call a designated initializer.
 * They can't call their super class initializers
 #### Required Initializers
-`required init(parameteres)`
+`required init(parameteres)`****
 * The required init should be implemented by all the subclasses of the current class
 * It's not necessary to provide an implementation for required init as long as subclasses implementations are satisfy the initializer requirements
 #### Example of class initializers
@@ -376,7 +376,7 @@ Extensions can add new functionality to a type, but they can’t override existi
 ## Protocols
 * If you specify `{ get }` for a property of a protocol that means it should be gettable, also it has the option of being settable, whereas if you specify `{ get set }` that means it should be gettable and settable.
 * If a method is being used in value types and it mutates states then you should define it with `mutating`, the implementations can decide to omit the mutating or not based on their context
-* You can define initializers inside protocols, any class that conforms to it should implement that protocol `init` with `required`
+* You can define initializers inside protocols, any **class** that conforms to it should implement that protocol `init` with `required`
 
 Weird example of Associated types
 ```swift

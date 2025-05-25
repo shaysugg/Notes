@@ -38,7 +38,7 @@ git branch -m new_branch_name
 use `git branch -a` to see the list of upstream branches addition to the local branches
 ### Cherry picking
 For ==copying== commits from one branch into another
-When copying stuff it will create new comics with different hash. You may have conflicts.
+When copying stuff it will create new comits with different hash. You may have conflicts.
 ```bash
 git checkout master
 git cherry-pick b886a0

@@ -1,4 +1,4 @@
-Useful for sorted array, search can be performed with o(logn) time complexity.
+	Useful for sorted array, search can be performed with o(logn) time complexity.
 It's started with the middle of the array, then based on the value is bigger of smaller than the value the index will be jumped to the the middle of the the first half or the middle of the second half. this process will go on until the element will be found.
 ## Example
 Regular search

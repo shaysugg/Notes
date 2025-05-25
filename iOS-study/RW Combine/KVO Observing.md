@@ -43,10 +43,15 @@ class MyObserver: NSObject {
     }
 }
 ```
-You can also do KVO observing like;
+You can also make the observer the same class like;
 ```swift
 class Something: NSObject {
+init() {
 addObserver(self, forKeyPath: #keyPath(PlayerViewController.player.currentItem.duration), options: [.new, .initial], context: &playerViewControllerKVOContext)
+}
+
+override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+
 }
 ```
 ## Definition
