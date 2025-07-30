@@ -1,4 +1,4 @@
-[Source](https://doc.rust-lang.org/book/)
+ [Source](https://doc.rust-lang.org/book/)
 ## Variables
 immutable variables:  `let x = 5;`
 mutable variables:  `let mut x = 5;`
@@ -857,10 +857,29 @@ some common smart pointers in standard library
 - `Ref<T>` and `RefMut<T>`, accessed through `RefCell<T>`, a type that enforces the borrowing rules at runtime instead of compile time
 ### `Box<T>`
 - When you have a type whose size can’t be known at compile time and you want to use a value of that type in a context that requires an exact size
+
 - When you have a large amount of data and you want to transfer ownership but ensure the data won’t be copied when you do so
 - When you want to own a value and you care only that it’s a type that implements a particular trait rather than being of a specific type
+```rust
+trait Shape {
+    fn area(&self) -> f64;
+}
 
-Implementing `cons` with `Box<T>`
+struct Circle {
+    radius: f64,
+}
+
+impl Shape for Circle {
+    fn area(&self) -> f64 {
+        std::f64::consts::PI * self.radius * self.radius
+    }
+}
+
+let shapes: Vec<Box<dyn Shape>> = vec![Box::new(Circle { radius: 2.0 })];
+
+```
+
+#### Implementing `cons` with `Box<T>`
 `cons` are like linked list. Each item knows the next item. If we want to store a data of `cons` on stack rust will give us an error because it can compute the recursive total amount of memory that it needs.
 ```rust
 enum List {

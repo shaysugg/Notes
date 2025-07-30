@@ -1,4 +1,4 @@
-setup sqlx on server
+.envsetup sqlx on server
 https://codevoweb.com/rust-build-a-crud-api-with-sqlx-and-postgresql/
 https://www.shuttle.dev/blog/2023/10/04/sql-in-rust
 
