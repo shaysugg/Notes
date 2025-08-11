@@ -73,6 +73,23 @@ UNION
 SELECT employee_id, name, city FROM employees_south;
 ```
 
+## JOIN 
+```SQL
 SELECT messages.id, messages.content, messages.room_id, messages.sender_id, messages.create_date, users.name from messages
 INNER JOIN users ON messages.sender_id = users.id
 WHERE messages.id = "28602429-588d-49af-b6f2-123216aa3eb8";
+```
+
+## INSERT or UPDATE
+If on certain conditions we want to update instead of insert we use a query like this.
+The ones that we excluding will be updated.
+```SQL
+INSERT OR REPLACE INTO room_state (id, user_id, room_id, last_seen) VALUES ($1, $2, $3, $4)
+ON CONFLICT(room_id, user_id)
+DO UPDATE SET timestamp = ECLUDE.timestamp;
+```
+If we want to consider the row unique id as the condition of conflict then we can use:
+```sql
+INSERT OR REPLACE INTO table_name (column1, column2) 
+VALUES (value1, value2);
+```
